@@ -1,4 +1,5 @@
-Read me file for the client
+# mysubs.live
+### Repo for mysubs.live's Client-Side React App running on React.js/Next.js
 
 How to run:
 1. `npm install` 
