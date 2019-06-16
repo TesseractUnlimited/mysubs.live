@@ -1,5 +1,5 @@
 # mysubs.live
-###Repo for Tesseract Unlimited's mysubs.live
+### Repo for mysubs.live's API Server running on Node.js
 
 Remember to use: 
 1. run `npm install` in console to install needed dependecies 
