@@ -8,8 +8,8 @@ const homeRoute = require('./Routes/home');
 const app = express();
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, './Views'));
-app.use(express.static(path.join(__dirname, 'Public')));
 
+app.use(express.static(path.join(__dirname, 'Public')));
 app.use(bodyParser.urlencoded({extended: false}));
 
 //Send the home page html
