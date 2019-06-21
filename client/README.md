@@ -1,5 +1,5 @@
 # mysubs.live
-### Repo for mysubs.live's Client-Side React App running on React.js/Next.js
+### Repo for mysubs.live's Client-Side React App running on React.js
 
 How to run:
 1. `npm install` 
