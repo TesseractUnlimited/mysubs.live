@@ -1,7 +1,7 @@
 const path = require('path');
-const express = require('express');
+const express = require('./node_modules/express');
 
-const rootDir = require('../Helpers/path');
+const rootDir = require('../helpers/path');
 const router = express.Router();
 
 //Routing Middleware
