@@ -15,4 +15,6 @@
 2. Go to 'github.com/TesseractUnlimited/mysubs.live' and create a new pull request.
 3. Make sure you have another teammate to sign off on your pull request before your merge with 'origin/master'!
 4. Then if there are no merging issues you can go ahead and merge.
+5. Go ahead and delete your personal branch after the merge is complete.
+6. Then create a new one with the same name as your previous personal branch. This allows us to start with a fresh version of master.
 ###### If you have any questions or your need help let me know.
