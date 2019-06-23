@@ -1,28 +1,8 @@
-.navbar__brand-position {
-    padding-top: 0;
-}
-
-.navbar {
-    padding: 0.5rem 2rem !important;
-}
-
-.navbar,
-.navbar-default {
+.footer {
     background-color: #3854F2;
+    width: 100%;
 }
 
-.nav-link {
-    padding: 0.5rem 1rem !important;
-    color: #ffffff !important;
-}
-
-.navbar-dark .navbar-nav .nav-link:hover {
-    color: #E6E6E6 !important;
-}
-
-.navbar-expand>.container,
-.navbar-expand>.container-fluid {
-    padding-right: 1rem;
-    padding-left: 1rem;
-    height: 6rem;
+.footer-container {
+    padding: 0.5rem 0rem;
 }
