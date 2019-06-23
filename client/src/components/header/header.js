@@ -5,9 +5,9 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import React, { Component } from "react";
 
-const logo = require('../../../public/static/images/white-logo.png');
+const logo = require('../../../public/images/logo-white.png');
 
-export default class Header extends Component {
+export default class Header extends Component { 
     render() {
         return (
             <Navbar sticky="top" variant="dark" expand="xl">
