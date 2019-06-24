@@ -9,6 +9,7 @@
    ###### **WARNING: There should be no changes going from your local 'master' branch to our 'origin/master' branch! All your work should have been done on your local branch. The only thing that should be changing is your local 'master' branch.**
 4. Now run `git checkout <branch_name>`.
 5. Then run `git merge master`.
+6. Run sync on your personal branch one more time to update your remote branch.
 
 ### How to update 'origin/master' branch properly:
 1. Commit all your changes to your personal branch and sync up to your 'origin/<branch_name>'.
