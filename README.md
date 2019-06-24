@@ -1,8 +1,11 @@
 # mysubs.live
 ### Repo for Tesseract Unlimited's mysubs.live
 
+<<<<<<< HEAD
 ### Repo for Tesseract Unlimited's mysubs.live
 
+=======
+>>>>>>> master
 ### How to update your branch properly:
 1. Commit all your changes to your personal branch and sync up to your 'origin/<branch_name>'.
    ###### If you have any files you want to save, move them somewhere else or they will be rewritten or deleted!
