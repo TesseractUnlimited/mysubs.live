@@ -1,0 +1,20 @@
+.navbar__brand-position {
+    padding-top: 0;
+}
+
+.navbar {
+    padding: 0.5rem 2rem;
+}
+.navbar, 
+.navbar-default {
+    background-color: #3854F2;
+}
+
+.nav-link {
+    padding: 0.5rem 1rem;
+    color: #ffffff;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #E6E6E6;
+}
