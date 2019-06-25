@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import React, { Component } from "react";
 import Layout from '../layout/layout';
 import Error from '../Error/Error';
+import landingPage from '../landingPage/landingPage';
 
 class App extends Component {
     render() {
@@ -9,7 +10,7 @@ class App extends Component {
             <Router>
                 <Switch>
                     {/* This is for the landing/home page */}
-                    <Route exact path="/" component={Layout} />
+                    <Route exact path="/" component={landingPage} />
                     <Route path="/login" component={Layout} />
                     <Route path="/signup" component={Layout} />
                     {/* This is for once the user is signed in */}
@@ -20,6 +21,6 @@ class App extends Component {
             </Router>
         );
     }
-}
+};
 
 export default App;
