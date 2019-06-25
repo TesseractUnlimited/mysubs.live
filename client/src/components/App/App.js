@@ -5,7 +5,7 @@ import Error from '../Error/Error';
 
 class App extends Component {
     render() {
-        return (
+        return ( 
             <Router>
                 <Switch>
                     {/* This is for the landing/home page */}
@@ -15,7 +15,7 @@ class App extends Component {
                     {/* This is for once the user is signed in */}
                     <Route path="/dashboard" component={Layout} />
                     <Route path="/profile/" component={Layout} />
-                    <Route exact path="*" component={Error} />
+                    <Route component={Error} />
                 </Switch>
             </Router>
         );

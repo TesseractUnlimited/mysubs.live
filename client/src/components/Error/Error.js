@@ -3,13 +3,10 @@ import React, { Component } from "react";
 import Layout from '../layout/layout';
 
 export default class Error extends Component { 
-    render({ location }) {
+    render() {
         return (
-            <div>
-                <Layout>
-                    <h1>404! Error!</h1>
-                    <code>{location.pathname}</code>
-                </Layout>
+            <div>       
+                <h1>404! Error!</h1>    
             </div>
         );
     }
