@@ -8,9 +8,9 @@ const logo = require('../../../public/images/logo-white.png');
 export default class Logo extends Component { 
     render() {
         return (
-            <Navbar.Brand className="navbar__brand-position" href="/">
+            <Navbar.Brand>
                 <img
-                    alt='mysubs.live Logo'
+                    alt='mysubs.live'
                     src={logo}
                     className="d-inline-block align-middle"
                     height='20'
