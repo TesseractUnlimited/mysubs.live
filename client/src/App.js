@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import React, { Component } from "react";
-import Layout from '../layout/layout';
-import Error from '../Error/Error';
-import landingPage from '../landingPage/landingPage';
+import Layout from './components/Layout/Layout';
+import Error from './pages/404/404';
+import Landing from './pages/Landing/Landing';
 
 class App extends Component {
     render() {
@@ -10,7 +10,7 @@ class App extends Component {
             <Router>
                 <Switch>
                     {/* This is for the landing/home page */}
-                    <Route exact path="/" component={landingPage} />
+                    <Route exact path="/" component={Landing} />
                     <Route path="/login" component={Layout} />
                     <Route path="/signup" component={Layout} />
                     {/* This is for once the user is signed in */}

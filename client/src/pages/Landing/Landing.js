@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import LandingHeader from '../landing-header/landing-header';
-import Footer from '../footer/footer';
+import LandingHeader from '../../components/LandingHeader/LandingHeader';
+import Footer from '../../components/Footer/Footer';
 import Container from "react-bootstrap/Container";
-import classes from './landingPage.css';
+import classes from './Landing.css';
 
 class landingPage extends Component {
     constructor(props) {

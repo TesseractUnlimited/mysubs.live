@@ -1,9 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import './Error.css';
+import './404.css';
 import React, { Component } from "react";
-import Row  from 'react-bootstrap/Row';
-import Header from '../header/header'
-import Footer from '../footer/footer'
+import Header from '../../components/Header/Header'
+import Footer from '../../components/Footer/Footer'
 import Container from 'react-bootstrap/Container';
 
 export default class Error extends Component { 

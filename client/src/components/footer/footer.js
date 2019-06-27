@@ -1,8 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import './footer.css';
+import './Footer.css';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
-import Logo from '../logo/logo';
+import Logo from '../Logo/Logo';
 import React, { Component } from "react";
 
 export default class Footer extends Component { 
