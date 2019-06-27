@@ -1,7 +1,7 @@
 import React, { Component} from "react";
-import Header from '../header/header';
-import LandingHeader from '../landing-header/landing-header';
-import Footer from '../footer/footer';
+import Header from '../Header/Header';
+import LandingHeader from '../LandingHeader/LandingHeader';
+import Footer from '../Footer/Footer';
 import Container from "react-bootstrap/Container";
 import './layout.css';
 
