@@ -1,14 +1,22 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+const cors = require('cors');
+const mongoose = require('mongoose');
+
 const app = express();
 const port = process.env.PORT || 5000;
 
 // route imports 
 const apiRoutes = require('./routes/api')
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
+const uri = 'mongodb+srv://ssalcedo00:nalgonio1@cluster0-vtosk.mongodb.net/test?retryWrites=true&w=majority';
+mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true })
+const connection = mongoose.connection;
+connection.once('open', () => {
+    console.log("MongoDB database connection established successfully.");
+})
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -18,7 +26,7 @@ app.use((req, res, next) => {
 });
 
 // '/api' GET route
-app.get('/api', apiRoutes);
+app.use('/api', apiRoutes);
 
 // console.log that your server is up and running
 app.listen(port, () => console.log(` > Listening on port ${port}`));
