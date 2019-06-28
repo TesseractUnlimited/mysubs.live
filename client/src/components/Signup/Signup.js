@@ -2,17 +2,16 @@ import React, { Component } from 'react';
 import LandingHeader from '../landing-header/landing-header';
 import Footer from '../footer/footer';
 import Container from "react-bootstrap/Container";
-import classes from './landingPage.css';
+import classes from './Signup.css';
 
-class landingPage extends Component {
+class Signup extends Component {
     render() {
-        const style = classes.div;
         return (
             <div>
                 <LandingHeader />
                 <Container>
-                    <h2>The best way to manage your subscriptions.</h2>
-                    <button>Sign up for free</button>
+                    <h3>sign up page</h3>
+                    <button>Create account</button>
                 </Container>
                 <Footer />
             </div>
@@ -20,4 +19,4 @@ class landingPage extends Component {
     }
 }
 
-export default landingPage;
+export default Signup;
