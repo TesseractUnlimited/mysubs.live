@@ -1,14 +1,18 @@
 .landingPage {
-    color: blue;
+    width: 60%;
+    margin: 16px auto;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    padding: 16px;
+    text-align: center;
 }
 
 .landingPage button {
-    border: 1px solid blue;
-    padding: 16px;
-    background-color: rgb(0, 80, 112);
-    font: inherit;
-    color: white;
-    cursor: pointer;
+    border-radius: 25px;
+    background: #73AD21;
+    padding: 20px; 
+    width: 200px;
+    height: 150px; 
 }
 
 .landingPage button:hover {
@@ -23,4 +27,10 @@
 .landingPage button.Red:hover {
     background-color: salmon;
     color: black;
+}
+
+@media (min-width: 500px) {
+    .Person {
+        width: 450px;
+    }
 }
