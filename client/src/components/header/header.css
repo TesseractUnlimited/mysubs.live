@@ -15,6 +15,11 @@
     color: #ffffff;
 }
 
-.navbar-dark .navbar-nav .nav-link:hover {
+.nav-link:hover {
     color: #E6E6E6;
+}
+
+.signup-btn {
+    border-radius: 0.25rem !important;
+    background: #59D9C1 !important;
 }

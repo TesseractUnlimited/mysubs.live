@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import './header.css';
+import './Header.css';
 import Nav from 'react-bootstrap/Nav'; 
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 export default class Header extends Component { 
     render() {
         return (
-            <Navbar sticky="top" variant="dark" expand="xl">
+            <Navbar sticky="top" expand="xl">
                 <Container>
                     <Logo />
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -20,7 +20,7 @@ export default class Header extends Component {
                         </Nav>
                         <Nav className="mr-right">
                             <Link className="nav-link" to="/login">Login</Link>
-                            <Link className="nav-link" to="/signup">Sign Up</Link>
+                            <Link className="nav-link signup-btn" to="/signup">Sign Up</Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

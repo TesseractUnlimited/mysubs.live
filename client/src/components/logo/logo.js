@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import './logo.css'
+import './Logo.css'
 import Navbar from 'react-bootstrap/Navbar';
 import React, { Component } from "react";
 

@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import React, { Component } from "react";
-import Layout from '../layout/layout';
-import Error from '../Error/Error';
-import landingPage from '../landingPage/landingPage';
-import Signup from '../Signup/Signup';
-import Login from '../Login/Login';
+import Layout from './components/Layout/Layout';
+import Error from './pages/404/404';
+import landingPage from './pages/Landing/Landing';
+import Signup from './components/Signup/Signup';
+import Login from './components/Login/Login';
 
 class App extends Component {
     render() {
