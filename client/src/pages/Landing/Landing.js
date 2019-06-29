@@ -29,20 +29,15 @@ class landingPage extends Component {
             <div>
                 <LandingHeader />
                 <div className="home">
-                    <Container>
-                        <Row>
-                            <Col>
-                                <h1 className="landingPage__home__col">The best way to manage your subscriptions.</h1>
-                            </Col>
-                            <Col>
-                                <button className="landingPage__home__btn-position">Try it out!</button>
-                            </Col>
-                        </Row>
+                    <Container className="centered">
+                            <h1>The best way to manage your subscriptions.</h1>        
+                            <button>Try it out!</button>
                     </Container>
                 </div>
                 <div className="product">
                     <Container>
                         <h1>Product</h1>
+                        <h2>Sign in once. Have access forever.</h2>
                     </Container>
                 </div>
                 <div className="about">

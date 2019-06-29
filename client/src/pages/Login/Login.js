@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import LandingHeader from '../../components/LandingHeader/LandingHeader';
 import Footer from '../../components/Footer/Footer';
 import Container from "react-bootstrap/Container";
-import classes from './Login.css';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import './Login.css';
 
 class Login extends Component {
     render() {
@@ -10,11 +12,21 @@ class Login extends Component {
             <div>
                 <LandingHeader />
                 <Container>
-                    <div>
-                        <p>Please Enter a Username:</p>
-                        <input type='text'/>
-                        <p>Please Enter a Password:</p>
-                        <input type='text'/>
+                    <div className="loginCard">
+                        <Form>
+                            <Form.Group>
+                                <Form.Label>Username</Form.Label>
+                                <Form.Control type="username" placeholder="Enter username" />
+                            </Form.Group>
+                            <Form.Group controlId="formBasicPassword">
+                                <Form.Label>Password</Form.Label>
+                                <Form.Control type="password" placeholder="Password" />
+                            </Form.Group>
+                            <Form.Group controlId="formBasicChecbox">
+                                <Form.Check type="checkbox" label="Keep me signed in" />
+                            </Form.Group>
+                            <Button variant="primary" type="submit">Submit</Button>
+                        </Form>
                     </div>
                 </Container>
                 <Footer />
