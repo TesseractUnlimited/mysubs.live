@@ -19,8 +19,7 @@ export default class Header extends Component {
                             <Link className="nav-link" to="/dashboard">Dashboard</Link>
                         </Nav>
                         <Nav className="mr-right">
-                            <Link className="nav-link" to="/login">Login</Link>
-                            <Link className="nav-link signup-btn" to="/signup">Sign Up</Link>
+                            <Link className="nav-link" to="/profile">Profile</Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

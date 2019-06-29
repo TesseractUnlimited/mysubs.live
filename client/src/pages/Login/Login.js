@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import LandingHeader from '../LandingHeader/LandingHeader';
-import Footer from '../Footer/Footer';
+import LandingHeader from '../../components/LandingHeader/LandingHeader';
+import Footer from '../../components/Footer/Footer';
 import Container from "react-bootstrap/Container";
 import classes from './Login.css';
 
@@ -10,8 +10,12 @@ class Login extends Component {
             <div>
                 <LandingHeader />
                 <Container>
-                    <h3>Login page</h3>
-                    <button>Log in</button>
+                    <div>
+                        <p>Please Enter a Username:</p>
+                        <input type='text'/>
+                        <p>Please Enter a Password:</p>
+                        <input type='text'/>
+                    </div>
                 </Container>
                 <Footer />
             </div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import LandingHeader from '../LandingHeader/LandingHeader';
-import Footer from '../Footer/Footer';
+import LandingHeader from '../../components/LandingHeader/LandingHeader';
+import Footer from '../../components/Footer/Footer';
 import Container from "react-bootstrap/Container";
 import classes from './Signup.css';
 

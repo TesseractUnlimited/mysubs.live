@@ -24,7 +24,7 @@ export default class LandingHeader extends Component {
                         </Nav>
                         <Nav className="mr-right">
                             <Link className="nav-link" to="/login">Login</Link>
-                            <Link className="nav-link" to="/signup">Sign up</Link>
+                            <Link className="nav-link signup-btn" to="/signup">Sign up</Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

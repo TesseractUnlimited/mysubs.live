@@ -1,36 +1,82 @@
-.landingPage {
-    width: 60%;
-    margin: 16px auto;
-    border: 1px solid #eee;
+.home {
+    justify-items: center;
+    height: 30rem;
+    width: 100%;
+    padding: 0rem 0.5rem;
     box-shadow: 0 2px 3px #ccc;
-    padding: 16px;
     text-align: center;
+    background-image: linear-gradient(#3854F2, #3243A6);
 }
 
-.landingPage button {
-    border-radius: 25px;
-    background: #73AD21;
-    padding: 20px; 
-    width: 200px;
-    height: 150px; 
+.home h1 {
+    font-size: 3.5rem;
+    color: #fff;
 }
 
-.landingPage button:hover {
-    background-color: rgb(0, 162, 255);
-    color: black;
+.home button {
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0.5rem;
+    text-align: center;
+    border-radius: 4rem;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
 }
 
-.landingPage button.Red {
-    background-color: red;
+.home button:hover {
+    background-color: #2EE59D;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+    color: #fff !important;
+    transform: scale(1.05);
 }
 
-.landingPage button.Red:hover {
-    background-color: salmon;
-    color: black;
+.landingPage__home__btn-position {
+    position: inherit;
+    top: 65%;
+    right: 30%;
 }
 
-@media (min-width: 500px) {
-    .Person {
-        width: 450px;
-    }
+.landingPage__home__col{
+    text-align: left;
+    position: inherit;
+    top: 50%;
+    left: 10%;
 }
+
+.product {
+    justify-items: center;
+    height: 45rem;
+    padding: 0rem 0.5rem;
+    text-align: center;
+    box-shadow: 0 2px 3px #ccc;
+}
+
+.about {
+    justify-items: center;
+    height: 45rem;
+    padding: 0rem 0.5rem;
+    text-align: center;
+    box-shadow: 0 2px 3px #ccc;
+}
+
+.contact {
+    justify-items: center;
+    height: 45rem;
+    padding: 0rem 0.5rem;
+    text-align: center;
+    box-shadow: 0 2px 3px #ccc;
+}
+
+.feedback {
+    justify-items: center;
+    height: 45rem;
+    padding: 0rem 0.5rem;
+    text-align: center;
+    box-shadow: 0 2px 3px #ccc;
+}
+
