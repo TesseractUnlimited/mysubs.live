@@ -15,9 +15,7 @@ class landingPage extends Component {
     }
 
     componentDidMount() {
-        fetch('/api', { headers: {    
-            "accepts": "application/json"
-        }})
+        fetch('/api')
             .then(res => res.json())
             .catch(err => console.log(err))
             .then(res => this.setState({ data: res.express }))
