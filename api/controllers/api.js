@@ -73,3 +73,9 @@ exports.deleteUser = (req, res, next) => {
         })
         .catch(err => console.log("Error: " + err));
 }
+
+exports.signup = (req, res, next) => {
+    const email = req.body.email;
+    const username = req.body.username;
+    const password = req.body.password;
+}
