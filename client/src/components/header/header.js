@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 export default class Header extends Component { 
     render() {
         return (
-            <Navbar sticky="top" expand="xl">
+            <Navbar sticky="top" variant="dark" expand="xl">
                 <Container>
                     <Logo />
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />

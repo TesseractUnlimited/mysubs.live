@@ -1,5 +1,4 @@
 const express = require('express');
-const cors = require('cors');
 const mongoose = require('mongoose');
 
 const app = express();
@@ -11,6 +10,13 @@ const apiRoutes = require('./routes/api')
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use((error, req, res, next) => {
+    console.log(error);
+    const status = error.statusCode || 500;
+    const message = error.message;
+    const data = error.data;
+    res.status(status).json({ message: message });
+})
 const uri = 'mongodb+srv://ssalcedo00:nalgonio1@cluster0-vtosk.mongodb.net/test?retryWrites=true&w=majority';
 mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true })
 const connection = mongoose.connection;

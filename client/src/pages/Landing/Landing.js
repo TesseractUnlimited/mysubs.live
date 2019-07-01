@@ -7,25 +7,9 @@ import Container from "react-bootstrap/Container";
 import './Landing.css';
 
 class landingPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: null
-        };
-    }
-
-    componentDidMount() {
-        fetch('/api')
-            .then(res => res.json())
-            .catch(err => console.log(err))
-            .then(res => this.setState({ data: res.express }))
-            .catch(err => console.log(err));
-    }
-    
     render() {
         return (
             <div>
-                <LandingHeader />
                 <div className="home">
                     <Container className="centered">
                             <h1>The best way to manage your subscriptions.</h1>        
@@ -53,7 +37,6 @@ class landingPage extends Component {
                         <h1>Feedback</h1>
                     </Container>
                 </div>
-                <Footer />
             </div>
         );
     }
