@@ -1,8 +1,7 @@
 .home {
     justify-items: center;
-    height: 35rem;
-    width: 100%;
-    padding: 0rem 0.5rem;
+    height: 40rem;
+    padding: 1rem 0.5rem;
     box-shadow: 0 2px 3px #ccc;
     text-align: center;
     background-image: linear-gradient(#3854F2, #3243A6);
@@ -35,39 +34,45 @@
     transform: scale(1.05);
 }
 
-.product {
-    justify-items: center;
-    height: 45rem;
-    padding: 0rem 0.5rem;
-    text-align: center;
-    box-shadow: 0 2px 3px #ccc;
-}
-
-.about {
-    justify-items: center;
-    height: 45rem;
-    padding: 0rem 0.5rem;
-    text-align: center;
-    box-shadow: 0 2px 3px #ccc;
-}
-
+.product, 
+.about,
+.feedback,
 .contact {
     justify-items: center;
-    height: 45rem;
-    padding: 0rem 0.5rem;
+    height: 40rem;
+    padding: 1rem 0rem;
     text-align: center;
-    box-shadow: 0 2px 3px #ccc;
-}
-
-.feedback {
-    justify-items: center;
-    height: 45rem;
-    padding: 0rem 0.5rem;
-    text-align: center;
-    box-shadow: 0 2px 3px #ccc;
+    background-image: linear-gradient(#ffffff, #ebedee);
 }
 
 .centered {
     position: relative;
-    top: 20%;
+    top: 10%;
+}
+
+.title {
+    margin: 2rem 0rem;
+}
+
+.info__title {
+    margin: 2rem 0rem 0.5rem 0rem;
+}
+
+.team-profile {
+    margin: 2rem 0rem;
+}
+
+.team-profile__pic {
+    margin: 1rem;
+    width: 6rem;
+    height: 6rem;
+}
+
+.large-logo {
+    width: 40rem;
+}
+
+.feedback__form {
+    min-width: 15rem;
+    max-width: 30rem;
 }

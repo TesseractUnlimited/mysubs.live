@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './Logo.css'
-import Navbar from 'react-bootstrap/Navbar';
+import { Navbar } from 'react-bootstrap';
 import React, { Component } from "react";
 
 const logo = require('../../../public/images/logo-white.png');
