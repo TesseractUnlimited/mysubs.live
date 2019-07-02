@@ -8,7 +8,7 @@ import * as yup from 'yup';
 import classes from './Signup.css';
 
 const schema = yup.object({
-    email: yup.string().email().required(),
+    email: yup.string().email().trim().required(),
     username: yup.string().required().trim().min(3).max(24),
     password: yup.string().required().trim().min(8).max(24),
     passConfirm: yup.string().required().trim().min(8).oneOf([yup.ref('password'), 'Passwords do not match.']).max(24),

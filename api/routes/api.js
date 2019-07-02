@@ -35,4 +35,14 @@ router.put('/signup', [
 ],
     apiController.signup);
 
+router.post('/login', [
+    body('username')
+        .isLength({min: 3}).withMessage('Username cannot be less that 3 characters.')
+        .not().isEmpty().withMessage('Username cannot be empty.'),
+    body('password')
+        .not().isEmpty().withMessage('Password cannot be empty.')
+        .isLength({min: 8}).withMessage('Password cannot be less that 8 characters.')
+], apiController.login);
+
+
 module.exports = router;

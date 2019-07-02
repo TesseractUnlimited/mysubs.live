@@ -17,13 +17,8 @@ class Login extends Component {
             <Container>
                 <Formik
                     initialValues={{ username: '', password: '' }}
-                    validationSchema={ schema } 
-                    onSubmit = {(values, { setSubmitting }) => {
-                        setTimeout(() => {
-                            alert(JSON.stringify(values, null, 2));
-                            setSubmitting(false);
-                        }, 400);
-                    }}
+                    validationSchema={ schema }
+                    onSubmit={ (values, bag) => this.props.onLogin(values, bag) }
                 >   
                     {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
                         <Form onSubmit={handleSubmit}>
@@ -35,12 +30,11 @@ class Login extends Component {
                                         name="username"
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        value={values.username}
+                                        value={values.username} 
                                         isValid={touched.username && !errors.username}
                                         isInvalid={touched.username && errors.username}
                                     />
-                                    <Form.Control.Feedback type="valid">Looks good!</Form.Control.Feedback>
-                                    <Form.Control.Feedback type="invalid">Please enter a valid username.</Form.Control.Feedback>
+                                     <Form.Control.Feedback type="invalid">Uh oh. Try again!</Form.Control.Feedback>
                                 </Form.Group>
                             </Form.Row>
                             <Form.Row>
@@ -55,8 +49,7 @@ class Login extends Component {
                                         isValid={touched.password && !errors.password}
                                         isInvalid={touched.password && errors.password}
                                     />
-                                    <Form.Control.Feedback type="valid">Perfect!</Form.Control.Feedback>
-                                    <Form.Control.Feedback type="invalid">Please enter a valid password.</Form.Control.Feedback>
+                                    <Form.Control.Feedback type="invalid">Uh oh. Try again!</Form.Control.Feedback>
                                 </Form.Group>
                             </Form.Row>
                             <Button type="submit" disabled={isSubmitting}>Submit</Button>

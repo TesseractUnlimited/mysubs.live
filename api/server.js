@@ -27,12 +27,19 @@ connection.once('open', () => {
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
 });
 
 // '/api' GET route
 app.use('/api', apiRoutes);
+
+app.use((error, req, res, next) => {
+    //console.log(error);
+    const status = error.statusCode || 500;
+    const message = error.message;
+    res.status(status).json({ error: error, message: message});
+});
 
 // console.log that your server is up and running
 app.listen(port, () => console.log(` > Listening on port ${port}`));
