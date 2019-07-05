@@ -1,67 +1,9 @@
 const User = require('../models/user.model');
+const Sub = require('../models/sub.model');
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-exports.getData = (req, res, next) => {
-    res.status(200).json({
-        express: "Hi Bitch"
-    });
-};
-
-exports.getUser = (req, res, next) => {
-    const userQuery = req.params.username;
-    // Check if the user logged in is this user
-    User.find({ username: userQuery })
-        .then(user => res.status(200).json(user))
-        .catch(err => res.status(400).json('Error: ' + err));
-}
-
-exports.editUser = (req, res, next) => {
-    const userQuery = req.params.username;
-    const email = req.body.email;
-    const password = req.body.password;
-    const name = req.body.name;
-    User.find({ username: userQuery })
-        .then(user => {
-            if (!user) {
-                const error = new Error('Could not find user.');
-                error.statusCode = 404;
-                throw error;
-            }
-            // Check if the user logged in is this user
-            else {
-                user[0].username = userQuery;
-                user[0].email = email;
-                user[0].password = password;
-                user[0].name = name;
-                return user[0].save();
-            }
-        })
-        .then(result => {
-            res.status(200).json({ message: "User updated!", post: result });
-        })
-        .catch(err => console.log("Error: " + err))
-}
-
-exports.deleteUser = (req, res, next) => {
-    const userQuery = req.params.username;
-    User.find({ username: userQuery })
-        .then(user => {
-            if (!user) {
-                const error = new Error('Could not find user.');
-                error.statusCode = 404;
-                throw error;
-            }
-            else return User.findByIdAndRemove(user[0]._id);
-            // Check if the user logged in is this user
-        })
-        .then(result => {
-            console.log(result);
-            res.status(200).json({ message: "Deleted User." });
-        })
-        .catch(err => console.log("Error: " + err));
-}
 
 exports.signup = (req, res, next) => {
     try {
@@ -86,7 +28,7 @@ exports.signup = (req, res, next) => {
             newUser.save()
         })
         .then(() => {
-            res.status(201).json({ message: 'User created!' });
+            res.status(201).json({ msg: 'User created!' });
         })
         .catch(err => {
             if (!err.statusCode) {
@@ -134,11 +76,92 @@ exports.login = (req, res, next) => {
                 'ultrAsup3rduperSecr3t',
                 { expiresIn: '2h' }
                 );
-                res.status(200).json({ token: token, userId: loadedUser._id.toString() });
+                res.status(200).json({ token: token, userId: loadedUser._id.toString(), username: loadedUser.username });
             }
         })
         .catch(err => {
             if (!err.statusCode) err.statusCode = 500;
             next(err);
         })
+}
+
+exports.getData = (req, res, next) => {
+    res.status(200).json({
+        express: "Hi Bitch"
+    });
+};
+
+exports.getUserData = (req, res, next) => {
+    const userParam = req.params.username;
+    // Check if the user logged in is this user
+    User.findOne({ username: userParam })
+        .then(user => {
+            res.status(200).json({
+                user: user
+                });
+        })
+        .catch(err => res.status(400).json('Error: ' + err));
+}
+
+exports.updateUserData = (req, res, next) => {
+    try {
+        validationResult(req).throw();
+    } catch (err) {
+        return res.status(422).json(err.array());
+    }
+
+    const userParam = req.params.username;
+    const newUsername = req.body.username;
+    const newEmail = req.body.email;
+    const newPassword = req.body.password;
+
+    User.findOne({ username: userParam })
+        .then(user => {
+            if (newUsername && user.username !== newUsername) 
+                user.username = newUsername;
+            if (newEmail && user.email !== newEmail) user.email = newEmail;
+            if (newPassword) {
+                bcrypt.hash(newPassword, 12)
+                    .then(hashedPass => user.password = hashedPass)
+                    .catch(err => res.status(500).json(err));
+            }
+            user.save();
+            res.status(200).json(user);
+        })
+        .catch(err => res.status(404).json(err));
+}
+
+exports.deleteUserData = (req, res, next) => {
+    const userParam = req.params.username;
+    User.findOneAndDelete({ username: userParam })
+        .then(() => res.status(200).json({ msg: "Success, User was deleted." }))
+        .catch(err => res.status(404).json(err));
+}
+
+exports.getUserSubs = (req, res, next) => {
+    const userParam = req.params.username;
+    // Check if the user logged in is this user
+    User.findOne({ username: userParam })
+        .then(user => {
+            res.status(200).json({
+                subs: user.subs
+            });
+        })
+        .catch(err => res.status(400).json('Error: ' + err));
+}
+
+exports.addUserSub  = (req, res, next) => {
+    
+}
+
+exports.removeUserSub = (req, res, next) => {
+
+}
+
+exports.getSubData = (req, res, next) => {
+
+}
+
+exports.updateSubData = (req, res, next) => {
+
 }

@@ -2,12 +2,13 @@
     padding-top: 0;
 }
 
-.navbar {
-    padding: 0.5rem 2rem;
-}
 .navbar, 
 .navbar-default {
     background-color: #3854F2;
+}
+
+.navbar {
+    padding: 0.5rem 0rem;
 }
 
 .nav-link {
@@ -16,5 +17,6 @@
 }
 
 .nav-link:hover {
+    transition: all 0.3s ease 0s;
     color: #FFD33B;
 }

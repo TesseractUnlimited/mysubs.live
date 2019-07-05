@@ -16,7 +16,7 @@ export default class LandingHeader extends Component {
                     <Logo />
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="mr-auto"> {/* These should link to different positions on the landingpage*/}
+                        <Nav className="mr-auto">
                             <Link className="nav-link" to="/">Home</Link>
                             <Link className="nav-link" to="/">Product</Link>
                             <Link className="nav-link" to="/">About</Link>

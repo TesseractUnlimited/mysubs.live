@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-module.export = (req, res, next) => {
+module.exports = (req, res, next) => {
     // need to add token to client function that uses this to pass token
     const authHeader = req.get('Authorization');
     if (!authHeader) {

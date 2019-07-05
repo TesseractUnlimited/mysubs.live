@@ -1,6 +1,5 @@
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import React, { Component, Fragment } from "react";
-import Layout from './components/Layout/Layout';
 import Error from './pages/404/404';
 import landingPage from './pages/Landing/Landing';
 import Signup from './pages/Signup/Signup';
@@ -10,12 +9,17 @@ import LandingHeader from "./components/LandingHeader/LandingHeader";
 import Header from "./components/Header/Header";
 import Footer from './components/Footer/Footer';
 import Profile from './pages/Profile/Profile';
+import Settings from './pages/Settings/Settings';
+import Help from './pages/Help/Help';
+import Messages from './pages/Messages/Messages';
+import './App.css';
 
 class App extends Component {
     state = {
         isAuth: false,
         token: null,
         userId: null,
+        username: '',
         authLoading: false,
         error: null
     }
@@ -40,8 +44,8 @@ class App extends Component {
         this.setAutoLogout(remainingMilliSec);
     }
 
-    logoutHandler = (e) => {
-        e.preventDefault();
+    logoutHandler = () => {
+        //e.preventDefault();
         this.setState({ isAuth: false, token: null });
         localStorage.removeItem('token');
         localStorage.removeItem('expiryDate');
@@ -55,8 +59,8 @@ class App extends Component {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              username: values.username,
-              password: values.password
+                username: values.username,
+                password: values.password
             })
         })
             .then(res => {
@@ -94,8 +98,10 @@ class App extends Component {
                     isAuth: true,
                     token: resData.token,
                     authLoading: false,
-                    userId: resData.userId
+                    userId: resData.userId,
+                    username: resData.username
                 });
+                console.log(this.state.username);
                 localStorage.setItem('token', resData.token);
                 localStorage.setItem('userId', resData.userId);
                 const remainingMilliseconds = 2 * 60 * 60 * 1000;
@@ -131,7 +137,7 @@ class App extends Component {
             })
         })
             .then(res => {
-                if (res.status === 422) 
+                if (res.status === 422)
                     throw new Error("Validation failed!");
                 
                 if (res.status !== 200 && res.status !== 201) {
@@ -145,7 +151,7 @@ class App extends Component {
                 this.setState({
                     isAuth: false, authLoading: false
                 });
-                this.props.history.replace('/');
+                this.props.history.replace('/login');
             })
             .catch(err => {
                 console.log(err);
@@ -196,9 +202,13 @@ class App extends Component {
                     <Route
                         path="/profile"
                         render={props => (
-                            <Profile {...props} userId={this.state.userId} token={this.state.token} />
+                            <Profile {...props} username={this.state.username} token={this.state.token} />
                         )} />
                     />
+                    <Route path='/settings' component={Settings} />
+                    <Route path='/messages' component={Messages} />
+                    <Route path='/help' component={Help} />
+                    
                     <Route component={Error} />
                 </Switch>
             );
@@ -210,8 +220,7 @@ class App extends Component {
         if (this.state.isAuth) {
             header = (
                 <Header 
-                    onLogout={ this.logoutHandler }
-                    isAuth={ this.state.isAuth }
+                    onLogout={this.logoutHandler}
                 />
             );
         }
