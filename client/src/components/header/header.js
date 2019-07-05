@@ -4,6 +4,7 @@ import { Nav, Navbar, NavDropdown, Container, Button, Form } from 'react-bootstr
 import Logo from '../Logo/Logo';
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { LinkContainer } from 'react-router-bootstrap';
 
 export default class Header extends Component { 
     render() {
@@ -18,19 +19,19 @@ export default class Header extends Component {
                         </Nav>
                         <Nav className="mr-right">
                             <NavDropdown title="Name" className="nav-link">
-                                <NavDropdown.Item>
-                                    Profile
-                                </NavDropdown.Item>
-                                <NavDropdown.Item>
-                                    Notifications
-                                </NavDropdown.Item>
-                                <NavDropdown.Item>
-                                    Settings
-                                </NavDropdown.Item>
+                                <LinkContainer to='/profile'>
+                                    <NavDropdown.Item>Profile</NavDropdown.Item>
+                                </LinkContainer>
+                                <LinkContainer to="/messages">
+                                    <NavDropdown.Item>Messages</NavDropdown.Item>
+                                </LinkContainer>
+                                <LinkContainer to="/settings">
+                                    <NavDropdown.Item>Settings</NavDropdown.Item>
+                                </LinkContainer>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item>
-                                    Help
-                                </NavDropdown.Item>
+                                <LinkContainer to="/help">
+                                    <NavDropdown.Item>Help</NavDropdown.Item>
+                                </LinkContainer>
                                 <NavDropdown.Item onClick={this.props.onLogout}>
                                     Logout
                                 </NavDropdown.Item>

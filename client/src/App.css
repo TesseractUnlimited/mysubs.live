@@ -1,1 +1,27 @@
+@font-face {
+    font-family: 'gilroy-bold';
+    src: url('../public/fonts/gilroy-bold.otf');
+}
 
+@font-face {
+    font-family: 'gilroy-light';
+    src: url('../public/fonts/gilroy-light.otf');
+}
+
+@font-face {
+    font-family: 'gilroy-medium';
+    src: url('../public/fonts/gilroy-medium.otf');
+}
+
+@font-face {
+    font-family: 'gilroy-light';
+    src: url('../public/fonts/gilroy-regular.otf');
+}
+
+body {
+    font-family: 'gilroy-light';
+}
+
+h1 {
+    font-family: 'gilroy-bold';
+}

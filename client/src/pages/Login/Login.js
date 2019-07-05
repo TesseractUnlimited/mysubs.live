@@ -14,7 +14,7 @@ const schema = yup.object({
 class Login extends Component {
     render() {
         return (
-            <Container>
+            <Container className="centered">
                 <Formik
                     initialValues={{ username: '', password: '' }}
                     validationSchema={ schema }
@@ -52,7 +52,7 @@ class Login extends Component {
                                     <Form.Control.Feedback type="invalid">Uh oh. Try again!</Form.Control.Feedback>
                                 </Form.Group>
                             </Form.Row>
-                            <Button type="submit" disabled={isSubmitting}>Submit</Button>
+                            <Button type="submit">Submit</Button>
                         </Form>
                     )}
                 </Formik>
