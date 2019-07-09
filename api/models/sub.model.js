@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const subSchema = new Schema({
-    _id: Schema.Types.ObjectId,
     subName: {
         index: true,
         type: String,

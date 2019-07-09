@@ -4,7 +4,6 @@ const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-
 exports.signup = (req, res, next) => {
     try {
         validationResult(req).throw();
@@ -12,6 +11,7 @@ exports.signup = (req, res, next) => {
     catch(err) {
         return res.status(422).json(err.array());
     }
+    
     const newEmail = req.body.email;
     const newUsername = req.body.username;
     const newPass = req.body.password;
@@ -89,7 +89,7 @@ exports.getData = (req, res, next) => {
     res.status(200).json({
         express: "Hi Bitch"
     });
-};
+}
 
 exports.getUserData = (req, res, next) => {
     const userParam = req.params.username;
@@ -116,52 +116,111 @@ exports.updateUserData = (req, res, next) => {
     const newPassword = req.body.password;
 
     User.findOne({ username: userParam })
-        .then(user => {
-            if (newUsername && user.username !== newUsername) 
-                user.username = newUsername;
-            if (newEmail && user.email !== newEmail) user.email = newEmail;
-            if (newPassword) {
-                bcrypt.hash(newPassword, 12)
-                    .then(hashedPass => user.password = hashedPass)
-                    .catch(err => res.status(500).json(err));
+        .exec((err, user) => {
+            if (user) {
+                if (newUsername && user.username !== newUsername)
+                    user.username = newUsername;
+                if (newEmail && user.email !== newEmail) user.email = newEmail;
+                if (newPassword) {
+                    bcrypt.hash(newPassword, 12)
+                        .then(hashedPass => user.password = hashedPass)
+                        .catch(err => res.status(500).json(err));
+                }
+                user.save();
+                res.status(200).json(user);
             }
-            user.save();
-            res.status(200).json(user);
-        })
-        .catch(err => res.status(404).json(err));
+            else res.status(404).json({ error: err, msg: "User was not found." });
+        });
 }
 
 exports.deleteUserData = (req, res, next) => {
     const userParam = req.params.username;
     User.findOneAndDelete({ username: userParam })
-        .then(() => res.status(200).json({ msg: "Success, User was deleted." }))
-        .catch(err => res.status(404).json(err));
+        .exec((err, user) => {
+            if (err) res.status(400).json({ error: err, msg: "The user was not found." });
+            else res.status(200).json({ msg: "Success, User was deleted." });
+        });
 }
 
 exports.getUserSubs = (req, res, next) => {
     const userParam = req.params.username;
     // Check if the user logged in is this user
-    User.findOne({ username: userParam })
-        .then(user => {
-            res.status(200).json({
-                subs: user.subs
-            });
-        })
-        .catch(err => res.status(400).json('Error: ' + err));
+    User.findOne({ username: userParam }).populate('subs')
+        .exec((user, err) => {
+            if (err) res.status(400).json(err);
+            else res.status(200).json(user.subs);
+        });
 }
 
-exports.addUserSub  = (req, res, next) => {
-    
+exports.addUserSub = (req, res, next) => {
+    try {
+        validationResult(req).throw();
+    } catch (err) {
+        return res.status(422).json(err.array());
+    }
+
+    const userQuery = req.params.username;
+    const newSub = new Sub({
+        subName: req.body.subName,
+        url: req.body.url
+    });
+    User.findOne({ username: userQuery })
+        .exec((err, user) => {
+            console.log(user);
+            if (err) res.status(404).json({ error: err,  msg: "User not found." });
+            else {
+                newSub.user = user
+                newSub.save();
+                user.subs.push(newSub);
+                user.save();
+                res.status(201).json({ msg: "New sub created and added to User!" })
+            }
+        });
 }
 
-exports.removeUserSub = (req, res, next) => {
+exports.getUserSubData = (req, res, next) => {
+    const userQuery = req.params.username;
+    const idQuery = req.params.subId;
 
+    Sub.findById(idQuery)
+        .exec(sub => {
+            if (!sub) res.status(404).json({ msg: "Sub not found." });
+            else {
+                User.findOne({ username: userQuery })
+                    .exec(user => {
+                        if (user._id.toString() === sub.user.toString()) res.status(200).json(sub);
+                        else res.status(404).json({ msg: "Sub user id doesnt not match id for provided username." });
+                    });
+            } 
+        });
 }
 
-exports.getSubData = (req, res, next) => {
+exports.updateUserSubData = (req, res, next) => {
+    try {
+        validationResult(req).throw();
+    } catch (err) {
+        return res.status(422).json(err.array());
+    }
 
+    const idQuery = req.params.subId;
+    const newSubName = req.body.subName;
+    const newURL = req.body.url;
+    Sub.findById(idQuery)
+        .exec(sub => {
+            if (!sub) res.status(404).json({ msg: "Sub not found." });
+            else {
+                if (newSubName && newSubName != sub.subName) sub.subName = newSubName;
+                if (newURL && newURL != sub.url) sub.url = newURL;
+                sub.save();
+                res.status(200).json({ updatedSub: sub, msg: "Sub succesfully updated!" });
+            } 
+        });
 }
 
-exports.updateSubData = (req, res, next) => {
-
+exports.deleteUserSubData = (req, res, next) => {
+    const idQuery = req.params.subId;
+    Sub.deleteOne({ _id: idQuery }, (err) => {
+        if (err) res.status(404).json({ error: err, msg: "Sub not found." });
+        else res.status(200).json({ msg: "Sub successfully deleted." });
+    });
 }
