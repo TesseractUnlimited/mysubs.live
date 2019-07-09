@@ -35,7 +35,7 @@ class landingPage extends Component {
                         </h3>
                         </Container>
                 </div>
-                <div  className="about">   
+                <div className="about">   
                     <Container>
                         <h1 className="info__title">About</h1>
                         <h6 className="text-muted">Teamwork makes the dream work.</h6>

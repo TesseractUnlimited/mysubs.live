@@ -5,8 +5,9 @@ const User = require('../models/user.model');
 const router = express.Router();
 const isAuth = require('../middleware/is-auth');
 
-router.put('/signup', [
+router.put('/signup', [ //done
     body('email')
+        .trim()
         .not().isEmpty().withMessage('Email cannot be empty.')
         .isEmail().withMessage('Please enter valid email.')
         .normalizeEmail()
@@ -16,6 +17,7 @@ router.put('/signup', [
             })
         }),
     body('username')
+        .trim()
         .not().isEmpty().withMessage('Username cannot be empty.')
         .custom((value) => {
             return User.findOne({ username: value }).then(userDoc => {
@@ -31,11 +33,13 @@ router.put('/signup', [
 ],
     apiController.signup);
 
-router.post('/login', [
+router.post('/login', [ //done
     body('username')
+        .trim()
         .isLength({min: 3}).withMessage('Username cannot be less that 3 characters.')
         .not().isEmpty().withMessage('Username cannot be empty.'),
     body('password')
+        .trim()
         .not().isEmpty().withMessage('Password cannot be empty.')
         .isLength({min: 8}).withMessage('Password cannot be less that 8 characters.')
 ], apiController.login);
@@ -63,20 +67,31 @@ router.route('/:username')
     ], apiController.updateUserData)
     .delete(isAuth, apiController.deleteUserData); //done
 
-router.route('/:username/subs')
-    .get(isAuth, apiController.getUserSubs)
-    .put([
+router.route('/:username/subs/')
+    .get(isAuth, apiController.getUserSubs) //done
+    .put([ //done
         isAuth,
-        body('name')
+        body('subName')
+            .trim()
             .not().isEmpty().withMessage('Name of Subscription Service cannot be empty.'),
         body('url')
+            .trim()
             .not().isEmpty().withMessage('URL cannot be empty.')
-            .not().isURL().withMessage('Must be a valid URL.')
-    ], apiController.addUserSub)
-    .delete(isAuth, apiController.removeUserSub);
+            .isURL().withMessage('Must be a valid URL.')
+    ], apiController.addUserSub);
 
-router.route(':/username/subs/:sub')
-    .get(isAuth, apiController.getSubData)
-    .patch(isAuth, apiController.updateSubData);
+router.route('/:username/subs/:subId')
+    .get(isAuth, apiController.getUserSubData) //done
+    .patch([
+        isAuth,
+        body('subName')
+            .trim()
+            .optional({ checkFalsy: true }),
+        body('url')
+            .trim()
+            .optional({ checkFalsy: true })
+            .isURL().withMessage('Must be a valid URL.')
+    ], apiController.updateUserSubData) 
+    .delete(isAuth, apiController.deleteUserSubData);
 
 module.exports = router;

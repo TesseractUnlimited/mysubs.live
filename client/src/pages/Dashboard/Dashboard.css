@@ -1,19 +1,28 @@
-.dash-h1 {
-    color: green;
-    text-align: center;
-    align-items: center;
-    margin: 10px;
-    border: 5px black double;
-    padding: 10px; 
+.page-parent {
+    display: flex;
     justify-content: center;
- }
+    margin: 0rem 9.5rem;
+}
+.card-holder{
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #E0E1E6;
+    margin: 2rem 1rem;
+    padding: 0rem 2rem 2rem 2rem;
+    align-content: center;
+    align-items: center;
+}
 
- .dash-h2 {
-    border-radius: 25px;
-    background: #73AD21;
-    padding: 20px;
-    width: 700px;
-    height: 150px;
-    margin: 40px;
-    text-align: center;
- }
+.dash-title {
+    margin: 0.5rem 0rem;
+}
+
+.card-title-holder {
+    padding-left: 1.75rem;
+    justify-items: flex-start;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    height: 4rem;
+}
