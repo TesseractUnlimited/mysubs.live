@@ -21,9 +21,13 @@ class Profile extends Component {
                 if (res.status === 400) {
                     throw new Error('User not found!');
                 }
+                else if (res.status === 404) {
+                    throw new Error ('User not found!');
+                }
                 else {
                     res.json()
                         .then(({ user }) => {
+                            console.log(user)
                             this.setState({
                                 name: user.name,
                                 username: user.username,
@@ -34,7 +38,7 @@ class Profile extends Component {
                 }
             })
             .catch(err => {
-                console.log(err);
+                console.log("fetch: " + err);
             });
     }
     render() {

@@ -71,7 +71,7 @@ class landingPage extends Component {
                         >
                             {({ handleSubmit, handleChange, handleBlur, values, touched, isValid, errors }) => (
                                 <Form className="feedback__form">
-                                    <Form.Group>
+                                    <Form.Group bsPrefix="feedback__form-group">
                                         <Form.Label>Name</Form.Label>
                                         <Form.Control
                                             type="text"

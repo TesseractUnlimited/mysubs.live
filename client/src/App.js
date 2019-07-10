@@ -35,11 +35,13 @@ class App extends Component {
             return;
         }
         const userId = localStorage.getItem('userId');
+        const username = localStorage.getItem('username');
         const remainingMilliSec = new Date(expiryDate).getTime() - new Date().getTime();
         this.setState({
             isAuth: true,
             token: token,
-            userId: userId
+            userId: userId,
+            username: username
         });
         this.setAutoLogout(remainingMilliSec);
     }
@@ -104,6 +106,7 @@ class App extends Component {
                 console.log(this.state.username);
                 localStorage.setItem('token', resData.token);
                 localStorage.setItem('userId', resData.userId);
+                localStorage.setItem('username', resData.username);
                 const remainingMilliseconds = 2 * 60 * 60 * 1000;
                 const expiryDate = new Date(
                     new Date().getTime() + remainingMilliseconds

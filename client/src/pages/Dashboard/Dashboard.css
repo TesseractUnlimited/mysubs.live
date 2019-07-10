@@ -13,16 +13,3 @@
     align-content: center;
     align-items: center;
 }
-
-.dash-title {
-    margin: 0.5rem 0rem;
-}
-
-.card-title-holder {
-    padding-left: 1.75rem;
-    justify-items: flex-start;
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    height: 4rem;
-}
