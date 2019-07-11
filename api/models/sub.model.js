@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const subSchema = new Schema({
-    subName: {
+    name: {
         index: true,
         type: String,
         required: true,
@@ -11,7 +11,20 @@ const subSchema = new Schema({
     url: {
         type: String,
         required: true,
+        trim: true
+    },
+    price: {
+        type: Number,
+        required: true,
         trim: true,
+    },
+    nextPayment: {
+        type: Date,
+        required: true
+    },
+    lastUsed: {
+        type: Date,
+        required: true
     },
     user: {
         type: Schema.Types.ObjectId,

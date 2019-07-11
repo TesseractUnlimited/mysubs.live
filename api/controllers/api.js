@@ -144,9 +144,8 @@ exports.deleteUserData = (req, res, next) => {
 
 exports.getUserSubs = (req, res, next) => {
     const userParam = req.params.username;
-    // Check if the user logged in is this user
     User.findOne({ username: userParam }).populate('subs')
-        .exec((user, err) => {
+        .exec((err, user) => {
             if (err) res.status(400).json(err);
             else res.status(200).json(user.subs);
         });
@@ -161,8 +160,11 @@ exports.addUserSub = (req, res, next) => {
 
     const userQuery = req.params.username;
     const newSub = new Sub({
-        subName: req.body.subName,
-        url: req.body.url
+        name: req.body.name,
+        url: req.body.url,
+        price: req.body.price,
+        nextPayment: req.body.nextPayment,
+        lastUsed: req.body.lastUsed
     });
     User.findOne({ username: userQuery })
         .exec((err, user) => {
@@ -218,7 +220,18 @@ exports.updateUserSubData = (req, res, next) => {
 }
 
 exports.deleteUserSubData = (req, res, next) => {
+    const userQuery = req.params.username;
     const idQuery = req.params.subId;
+
+    User.findOne({ username: userQuery })
+        .exec((err, user) => {
+            if (err) res.status(400).json({ error: err, msg: "Couldn't find user by username." });
+            else {
+                user.subs.remove(idQuery);
+                user.save();
+            }
+        })
+
     Sub.deleteOne({ _id: idQuery }, (err) => {
         if (err) res.status(404).json({ error: err, msg: "Sub not found." });
         else res.status(200).json({ msg: "Sub successfully deleted." });

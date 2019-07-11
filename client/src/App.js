@@ -200,7 +200,7 @@ class App extends Component {
                 <Switch>
                     <Route path="/dashboard"
                         render={props => (
-                            <Dashboard {...props} userId={this.state.userId} token={this.state.token} />
+                            <Dashboard {...props} username={this.state.username} userId={this.state.userId} token={this.state.token} />
                         )} />
                     <Route
                         path="/profile"

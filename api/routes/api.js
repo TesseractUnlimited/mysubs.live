@@ -67,17 +67,26 @@ router.route('/:username')
     ], apiController.updateUserData)
     .delete(isAuth, apiController.deleteUserData); //done
 
-router.route('/:username/subs/')
+router.route('/:username/subs')
     .get(isAuth, apiController.getUserSubs) //done
     .put([ //done
         isAuth,
-        body('subName')
+        body('name')
             .trim()
             .not().isEmpty().withMessage('Name of Subscription Service cannot be empty.'),
         body('url')
             .trim()
             .not().isEmpty().withMessage('URL cannot be empty.')
-            .isURL().withMessage('Must be a valid URL.')
+            .isURL().withMessage('Must be a valid URL.'),
+        body('price')
+            .trim()
+            .not().isEmpty().withMessage('Price cannot be empty.'),
+        body('nextPayment')
+            .trim()
+            .not().isEmpty().withMessage('Next Payment cannot be empty.'),
+        body('lastUsed')
+            .trim()
+            .not().isEmpty().withMessage('Last Used cannot be empty.'),
     ], apiController.addUserSub);
 
 router.route('/:username/subs/:subId')
@@ -91,7 +100,7 @@ router.route('/:username/subs/:subId')
             .trim()
             .optional({ checkFalsy: true })
             .isURL().withMessage('Must be a valid URL.')
-    ], apiController.updateUserSubData) 
+    ], apiController.updateUserSubData)  
     .delete(isAuth, apiController.deleteUserSubData);
 
 module.exports = router;

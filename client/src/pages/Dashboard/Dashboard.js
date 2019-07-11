@@ -1,28 +1,24 @@
 import './Dashboard.css';
 import React, { Component } from 'react';
 import { Container, Row } from 'react-bootstrap';
-import CardItem from '../../components/CardItem/CardItem';
 import SubCardGroup from '../../components/SubCardGroup/SubCardGroup';
 import UserCardGroup from '../../components/UserCardGroup/UserCardGroup';
 import OverviewCardGroup from '../../components/OverviewCardGroup/OverviewCardGroup';
 import UserCardItem from '../../components/UserCardItem/UserCardItem';
+import SubList from '../../components/SubList/SubList';
 
 class Dashboard extends Component {
 // create a function that goes through a user's subscriptions and prints them out as cards
     /*
-    state = {
-        subs: []
-    }
-    
     componentDidMount() {
         console.log(this.props.username);
         fetch('api/' + `${this.props.username}`, {
-                headers: {
+            method: "GET",
+            headers: {
                 Authorization: 'Bearer ' + this.props.token,
-                    ContentType: 'application/json'
-                }
-            })
-            .then(res => {
+                ContentType: 'application/json'
+            }
+        }).then(res => {
                 if (res.status === 400) {
                     throw new Error('User not found!');
                 }
@@ -32,10 +28,10 @@ class Dashboard extends Component {
                 else {
                     res.json()
                         .then(({ user }) => {
-                            console.log(user)
                             this.setState({
-                                subs: user.subs
+                               
                             });
+                            console.log(this.state.subs);
                         })
                         .catch(err => console.log(err));
                 }
@@ -44,15 +40,8 @@ class Dashboard extends Component {
                 console.log("fetch: " + err);
             });
     }
-
-    cardList = (props) => {
-        const subs = props.subs;
-        const cardItems = subs.map((sub) => {
-            <CardItem cardTitle={sub.name} cardBody={sub.url}/>
-        });
-    }   
     */
-    
+
     render() {
         return (
             <div className="page-parent">
@@ -72,27 +61,7 @@ class Dashboard extends Component {
                 <Row>
                     <Container className="card-holder__subs">
                         <SubCardGroup title="Subs">
-                            <CardItem
-                                cardTitle="Netflix"
-                                cardBody="A Netflix Subscription." 
-                                price="$10/mo"
-                                dueDate="15/07"
-                                lastUsed="10/07"
-                            />
-                            <CardItem
-                                cardTitle="Hulu"
-                                cardBody="A Hulu Subscription." 
-                                price="$10/mo"
-                                dueDate="15/07"
-                                lastUsed="10/07"
-                            />
-                            <CardItem
-                                cardTitle="Github"
-                                cardBody="A Github Subscription." 
-                                price="$10/mo"
-                                dueDate="15/07"
-                                lastUsed="10/07"
-                            />
+                            <SubList username={this.props.username} token={this.props.token}/>
                         </SubCardGroup>
                     </Container>    
                 </Row>
