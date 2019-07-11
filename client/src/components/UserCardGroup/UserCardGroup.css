@@ -1,0 +1,38 @@
+.user-card-group {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.user-card-group__top-row,
+.user-card-group__bottom-row {
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: row;
+}
+
+.user-card-group__bottom-row{
+    padding: 0rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.user-card-group__bottom-row__col {
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+    height: 1rem;
+}
+
+.user-card-group__bottom-row__col #1 {
+    padding-right: 0;
+    width: 2rem;
+}
+
+.user-card-group__bottom-row__col-1__p {
+    margin: 0;
+    display: block;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+

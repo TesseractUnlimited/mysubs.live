@@ -1,5 +1,4 @@
-
-.card-item__card {
+.user-card-item__card {
     margin-bottom: 0.5rem;
     padding: 1rem;
     position: relative;
@@ -18,17 +17,17 @@
     cursor: pointer;
 }
 
-.card-item__card:hover {
+.user-card-item__card:hover {
     box-shadow: 0.5rem 0.5rem 1rem 0rem rgba(0, 0, 0, 0.25);
     transform: translate(0rem, -0.25rem);
 }
 
-.card-item__card__col-1__image {
+.user-card-item__card__col__image {
     height: 2rem;
     width: 2rem;
 }
 
-.card-item__card__row {
+.user-card-item__card__row {
     display: -ms-flexbox;
     display: flex;
     flex-direction: row;
@@ -36,12 +35,9 @@
     height: 2rem;
 }
 
-.card-item__card__col-1,
-.card-item__card__col-2,
-.card-item__card__col-3,
-.card-item__card__col-4,
-.card-item__card__col-5 {
+.user-card-item__card__col {
     max-width: 100%;
     position: relative;
     width: 100%;
+    padding: 0;
 }
