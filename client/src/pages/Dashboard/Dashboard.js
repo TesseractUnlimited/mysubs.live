@@ -51,12 +51,14 @@ class Dashboard extends Component {
 
                         </OverviewCardGroup>
                     </Container>
+                    {/* 
                     <Container className="card-holder__users col-4">
                         <UserCardGroup title="Users">       
                             <UserCardItem name="Salvador Salcedo" role="Admin" />   
                             <UserCardItem name="Lulu" role="User"/>   
                         </UserCardGroup>
                     </Container>
+                    */}
                 </Row>    
                 <Row>
                     <Container className="card-holder__subs">

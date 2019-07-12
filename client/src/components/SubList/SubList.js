@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import SubCardItem from '../../components/SubCardItem/SubCardItem';
+import moment from 'moment';
 
 class SubList extends Component {
     state = {
@@ -28,7 +29,7 @@ class SubList extends Component {
                             this.setState({
                                 subs: subs
                             });
-                            console.table(this.state.subs);
+                            //console.table(this.state.subs);
                         })
                         .catch(err => console.log(err));
                 }
@@ -42,12 +43,16 @@ class SubList extends Component {
         return (
             <div>
                 {this.state.subs.map((sub, index) => {
+                    const nextDate = moment(sub.nextPayment).toDate();
+                    const lastDate = moment(sub.lastUsed).toDate();
+                    //console.log(typeof sub);
+                    console.log(nextDate);
                     return <SubCardItem
                         key={index}
                         name={sub.name}
                         price={sub.price}
-                        nextPayment={sub.nextPayment}
-                        lastUsed={sub.lastUsed}         
+                        nextPayment={`${nextDate.getUTCMonth()}/${nextDate.getUTCDay()}/${nextDate.getUTCFullYear()}`}
+                        lastUsed={`${lastDate.getUTCMonth()}/${lastDate.getUTCDay()}/${lastDate.getUTCFullYear()}`}
                     />
                 })}
             </div>

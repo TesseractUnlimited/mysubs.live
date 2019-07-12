@@ -80,13 +80,7 @@ router.route('/:username/subs')
             .isURL().withMessage('Must be a valid URL.'),
         body('price')
             .trim()
-            .not().isEmpty().withMessage('Price cannot be empty.'),
-        body('nextPayment')
-            .trim()
-            .not().isEmpty().withMessage('Next Payment cannot be empty.'),
-        body('lastUsed')
-            .trim()
-            .not().isEmpty().withMessage('Last Used cannot be empty.'),
+            .not().isEmpty().withMessage('Price cannot be empty.')
     ], apiController.addUserSub);
 
 router.route('/:username/subs/:subId')

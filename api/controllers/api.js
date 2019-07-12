@@ -154,8 +154,9 @@ exports.getUserSubs = (req, res, next) => {
 exports.addUserSub = (req, res, next) => {
     try {
         validationResult(req).throw();
-    } catch (err) {
-        return res.status(422).json(err.array());
+    }
+    catch (err) {
+        res.status(422).json(err.array());
     }
 
     const userQuery = req.params.username;
@@ -163,16 +164,27 @@ exports.addUserSub = (req, res, next) => {
         name: req.body.name,
         url: req.body.url,
         price: req.body.price,
-        nextPayment: req.body.nextPayment,
-        lastUsed: req.body.lastUsed
+        nextPayment: new Date(Date.UTC(
+            req.body.nextPayment.year,
+            req.body.nextPayment.month,
+            req.body.nextPayment.day
+        )),
+        lastUsed: new Date(Date.UTC(
+            req.body.lastUsed.year,
+            req.body.lastUsed.month,
+            req.body.lastUsed.day
+        ))
     });
     User.findOne({ username: userQuery })
         .exec((err, user) => {
-            console.log(user);
             if (err) res.status(404).json({ error: err,  msg: "User not found." });
             else {
                 newSub.user = user
                 newSub.save();
+                user.subs.map((oldSub) => {
+                    if (oldSub === null || oldSub === undefined)
+                        user.subs.remove(oldSub);
+                })
                 user.subs.push(newSub);
                 user.save();
                 res.status(201).json({ msg: "New sub created and added to User!" })
