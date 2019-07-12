@@ -3,7 +3,6 @@ const { body } = require('express-validator');
 const apiController = require('../controllers/api');
 const User = require('../models/user.model');
 const router = express.Router();
-const isAuth = require('../middleware/is-auth');
 
 router.put('/signup', [ //done
     body('email')
@@ -43,58 +42,5 @@ router.post('/login', [ //done
         .not().isEmpty().withMessage('Password cannot be empty.')
         .isLength({min: 8}).withMessage('Password cannot be less that 8 characters.')
 ], apiController.login);
-
-router.route('/:username')
-    .get(isAuth, apiController.getUserData) //done
-    .patch([ //done
-        isAuth,
-        body('email')
-            .optional({ checkFalsy: true }).isEmail().withMessage('Please enter valid email.')
-            .optional({ checkFalsy: true }).custom((value, { req }) => {
-                return User.findOne({ email: value }).then(userDoc => {
-                    if (userDoc) return Promise.reject('Email already in use.');
-                })
-            }),
-        body('username')
-            .optional({ checkFalsy: true }).isLength({min: 3}).withMessage('Username cannot be less that 3 characters.')
-            .optional({ checkFalsy: true }).custom((value) => {
-                return User.findOne({ username: value }).then(userDoc => {
-                    if (userDoc) return Promise.reject('Username already in use.');
-                })
-            }),
-        body('password')
-            .optional({ checkFalsy: true }).isLength({min: 8}).withMessage('Password cannot be less that 8 characters.')
-    ], apiController.updateUserData)
-    .delete(isAuth, apiController.deleteUserData); //done
-
-router.route('/:username/subs')
-    .get(isAuth, apiController.getUserSubs) //done
-    .put([ //done
-        isAuth,
-        body('name')
-            .trim()
-            .not().isEmpty().withMessage('Name of Subscription Service cannot be empty.'),
-        body('url')
-            .trim()
-            .not().isEmpty().withMessage('URL cannot be empty.')
-            .isURL().withMessage('Must be a valid URL.'),
-        body('price')
-            .trim()
-            .not().isEmpty().withMessage('Price cannot be empty.')
-    ], apiController.addUserSub);
-
-router.route('/:username/subs/:subId')
-    .get(isAuth, apiController.getUserSubData) //done
-    .patch([
-        isAuth,
-        body('subName')
-            .trim()
-            .optional({ checkFalsy: true }),
-        body('url')
-            .trim()
-            .optional({ checkFalsy: true })
-            .isURL().withMessage('Must be a valid URL.')
-    ], apiController.updateUserSubData)  
-    .delete(isAuth, apiController.deleteUserSubData);
 
 module.exports = router;

@@ -42,7 +42,10 @@ module.exports = {
         hotOnly: true,
         historyApiFallback: true,
         proxy: {
-            '/api': 'http://localhost:5000'
+            '/api/': 'http://localhost:5000',
+            '/sub/': 'http://localhost:5000',
+            '/subs/': 'http://localhost:5000',
+            '/user/': 'http://localhost:5000'
         }
     },
     plugins: [new webpack.HotModuleReplacementPlugin()]

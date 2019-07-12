@@ -11,7 +11,7 @@ class Profile extends Component {
     // create a function that goes through a user's subscriptions and prints them out as cards
     componentDidMount() {
         console.log(this.props.username);
-        fetch('api/' + `${this.props.username}`, {
+        fetch('user/' + `${this.props.username}`, {
                 headers: {
                     Authorization: 'Bearer ' + this.props.token,
                     ContentType: 'application/json'
