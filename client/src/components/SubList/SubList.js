@@ -17,7 +17,6 @@ class SubList extends Component {
             }
         }).then(res => {
             if (res.status === 400) {
-                    console.log(res);
                     throw new Error('Bad Request.');
                 }
                 else if (res.status === 404) {
@@ -29,7 +28,6 @@ class SubList extends Component {
                             this.setState({
                                 subs: subs
                             });
-                            //console.table(this.state.subs);
                         })
                         .catch(err => console.log(err));
                 }
@@ -45,8 +43,6 @@ class SubList extends Component {
                 {this.state.subs.map((sub, index) => {
                     const nextDate = moment(sub.nextPayment).toDate();
                     const lastDate = moment(sub.lastUsed).toDate();
-                    //console.log(typeof sub);
-                    console.log(nextDate);
                     return <SubCardItem
                         key={index}
                         name={sub.name}

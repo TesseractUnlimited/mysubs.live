@@ -46,12 +46,12 @@ class Dashboard extends Component {
         return (
             <div className="page-parent">
                 <Row bsPrefix="dash-row">
+                    {/*
                     <Container className="card-holder__overview col-7">
                         <OverviewCardGroup title="Overview">
 
                         </OverviewCardGroup>
                     </Container>
-                    {/* 
                     <Container className="card-holder__users col-4">
                         <UserCardGroup title="Users">       
                             <UserCardItem name="Salvador Salcedo" role="Admin" />   
