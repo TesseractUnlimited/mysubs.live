@@ -4,9 +4,15 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 import './LoginCard.css';
 
-const schema = yup.object({
-    username: yup.string().required().trim().min(3),
-    password: yup.string().required().trim().min(8)
+const schema = yup.object().shape({
+    username: yup.string()
+        .required('Username is required.')
+        .trim()
+        .min(3, 'Username must be at least 3 characters.'),
+    password: yup.string()
+        .required('Password is required.')
+        .trim()
+        .min(8, 'Password must be at least 8 characters.')
 });
 
 class LoginCard extends Component {
@@ -35,9 +41,8 @@ class LoginCard extends Component {
                                             onBlur={handleBlur}
                                             value={values.username}
                                             isValid={touched.username && !errors.username}
-                                            isInvalid={touched.username && errors.username}
                                         />
-                                        <Form.Control.Feedback type="invalid">Uh oh. Try again!</Form.Control.Feedback>
+                                        { errors.username && touched.username ? ( <div className="text-danger">{errors.username}</div> ) : null }
                                     </Form.Group>
                                 </Form.Row>
                                 <Form.Row bsPrefix="login-card__card__form__form-row">
@@ -50,12 +55,15 @@ class LoginCard extends Component {
                                             onBlur={handleBlur}
                                             value={values.password}
                                             isValid={touched.password && !errors.password}
-                                            isInvalid={touched.password && errors.password}
                                         />
-                                        <Form.Control.Feedback type="invalid">Uh oh. Try again!</Form.Control.Feedback>
+                                        { errors.password && touched.password ? ( <div className="text-danger">{errors.password}</div> ) : null }
                                     </Form.Group>
                                 </Form.Row>
-                                <Button type="submit">Submit</Button>
+                                <Button
+                                    type="submit"
+                                >
+                                    Submit
+                                </Button>
                             </Form>
                         )}
                     </Formik>

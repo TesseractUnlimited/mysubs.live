@@ -43,7 +43,7 @@ class Profile extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="page-parent">
                 <Container>
                     <h1>Profile</h1>
                     <h2>Hi, {this.state.name}</h2>

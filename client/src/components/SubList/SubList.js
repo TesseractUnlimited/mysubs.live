@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import SubCardItem from '../../components/SubCardItem/SubCardItem';
-import moment from 'moment';
+import * as moment from 'moment';
 
 class SubList extends Component {
     state = {

@@ -22,25 +22,21 @@
     }
 }
 
-.login__page-parent {
-    width: 100%;
-    height: 100%;
+.page-parent {
+    flex: 1;
     padding: 0 1rem;
-    margin: 11rem auto;
+    margin: 0rem 1rem;
 }
 
-.login__login-row {
+.login-card__container {
     display: -ms-flexbox;
     display: flex;
+    flex-direction: row;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     justify-content: center;
-}
-
-.login__card-holder__login {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    justify-content: center;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
+    height: 100%;
 }

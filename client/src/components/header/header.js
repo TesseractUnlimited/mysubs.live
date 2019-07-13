@@ -9,7 +9,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 export default class Header extends Component { 
     render() {
         return (
-            <Navbar sticky="top" variant="dark" expand="xl">
+            <Navbar className="auth-user__header" sticky="top" variant="dark" expand="xl">
                 <Container>
                     <Logo />
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />

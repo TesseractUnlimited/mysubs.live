@@ -222,18 +222,17 @@ class App extends Component {
         
         if (this.state.isAuth) {
             header = (
-                <Header 
-                    onLogout={this.logoutHandler}
+                <Header onLogout={this.logoutHandler}
                 />
             );
         }
 
         return (
-            <Fragment>
+            <div className="wrapper">
                 {header}
                 {routes}
-                <Footer />
-            </Fragment>
+                <Footer/>
+            </div>
         );
     }
 };

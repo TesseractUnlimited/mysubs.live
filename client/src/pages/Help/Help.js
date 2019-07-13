@@ -4,7 +4,7 @@ import { Container } from 'react-bootstrap';
 class Help extends Component {
     render() {
         return (
-            <div>
+            <div className="page-parent">
                 <Container>
                     <h1>Help</h1>
                     <h2></h2>

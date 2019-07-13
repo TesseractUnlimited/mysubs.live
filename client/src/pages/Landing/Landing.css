@@ -1,23 +1,33 @@
-.home {
-    justify-items: center;
+.landing__home {
     height: 40rem;
     padding: 1rem 0.5rem;
-    box-shadow: 0 2px 3px #ccc;
     text-align: center;
     background-image: linear-gradient(#3854F2, #3243A6);
 }
 
-.home h1 {
+.landing__home__container{
+    width: 100%;
+    height: 75%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.landing__home__title {
     font-size: 3.5rem;
     color: #fff;
 }
 
-.home button {
-    font-size: 2rem;
-    padding: 0.5rem 1rem;
-    margin: 2rem 1rem;
-    text-align: center;
-    border-radius: 4rem;
+.landing__home__try-now-btn {
+    width: 24rem;
+    height: 4rem;
+    padding: 0.5rem 2rem;
+    border-radius: 6rem;
     color: #000;
     background-color: #fff;
     border: none;
@@ -25,19 +35,23 @@
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
+    font-weight: 500;
+    font-size: 1.75rem;
+    margin: 0;
+    text-decoration: none !important;
 }
 
-.home button:hover {
-    background-color: #2EE59D;
-    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+.landing__home__try-now-btn:hover {
+    background-color: #FFB93B;
+    box-shadow: 0rem 2rem 1.5rem -1.5rem rgba(255, 185, 59, 0.3);
     color: #fff !important;
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
-.product, 
-.about,
-.feedback,
-.contact {
+.landing__product, 
+.landing__about,
+.landing__feedback,
+.landing__contact {
     justify-items: center;
     height: 40rem;
     padding: 1rem 0rem;
@@ -45,16 +59,11 @@
     background-image: linear-gradient(#ffffff, #ebedee);
 }
 
-.centered {
-    position: relative;
-    top: 10%;
-}
-
-.title {
+.landing__title {
     margin: 2rem 0rem;
 }
 
-.info__title {
+.landing__product__title {
     margin: 2rem 0rem 0.5rem 0rem;
 }
 

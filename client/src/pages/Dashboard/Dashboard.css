@@ -22,12 +22,6 @@
     }
 }
 
-.page-parent {
-    width: 100%;
-    padding: 0 1rem;
-    margin: 0 auto;
-}
-
 .dash-row {
     display: -ms-flexbox;
     display: flex;
