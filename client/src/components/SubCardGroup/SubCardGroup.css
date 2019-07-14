@@ -12,7 +12,37 @@
     flex-direction: row;
 }
 
+.sub-card-group__top-row {
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .sub-card-group__bottom-row{
     padding: 0rem 1rem;
     margin-bottom: 1rem;
+}
+
+.sub-card-group__top-row__add-sub-btn {
+    width: 8rem;
+    height: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none !important;
+    color: white;
+    background-color: #3854F2;
+    border-radius: 1rem;
+    padding: 0rem 1rem;
+    border: none;
+    transition: all 0.2s ease-in-out 0s;
+    cursor: pointer;
+}
+
+.sub-card-group__top-row__add-sub-btn:hover {
+    color: white;
+    background-color: #3243A6;
+    box-shadow: 0 0 0rem 0.2rem rgba(56, 84, 242, 0.5);
 }

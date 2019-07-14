@@ -1,4 +1,4 @@
-.login-card__container {
+.add-sub__container {
     display: -ms-flexbox;
     display: flex;
     flex-direction: row;
@@ -6,6 +6,5 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 4rem auto;
 }

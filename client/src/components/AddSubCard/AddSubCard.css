@@ -1,4 +1,4 @@
-.signup-card__card {
+.add-sub-card__card {
     margin-bottom: 0.5rem;
     padding: 1rem;
     position: relative;
@@ -16,38 +16,17 @@
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
-.signup-card__card__top-row,
-.signup-card__card__bottom-row {
+.add-sub-card__card__top-row,
+.add-sub-card__card__bottom-row {
     display: -ms-flexbox;
     display: flex;
     flex-direction: row;
     width: 100%;
 }
 
-.signup-card__card__form__form-row {
+.add-sub-card__card__form__form-row {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-}
-
-.signup-card__card__form__form-row__form-group {
-    width: 100%;
-    margin-bottom: 1rem;
-}
-
-.signup-card__card__bottom-row__form {
-    width: 100%;
-}
-
-#password-field {
-    justify-content: space-between;
-}
-
-.signup-card__card__form__form-row__form-col {
-    display: flex;
-    flex: 0 0 48%;    
-    max-width: 48%;
-    position: relative;
-    width: 100%
 }

@@ -1,6 +1,6 @@
 import './Profile.css';
 import React, { Component } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 
 class Profile extends Component {
     state = {
@@ -8,7 +8,7 @@ class Profile extends Component {
         name: '',
         email: ''
     }
-    // create a function that goes through a user's subscriptions and prints them out as cards
+    
     componentDidMount() {
         console.log(this.props.username);
         fetch('user/' + `${this.props.username}`, {
@@ -44,12 +44,14 @@ class Profile extends Component {
     render() {
         return (
             <div className="page-parent">
-                <Container>
-                    <h1>Profile</h1>
-                    <h2>Hi, {this.state.name}</h2>
-                    <h4>Username: {this.state.username}</h4>
-                    <h4>Email: {this.state.email}</h4>
-                </Container>
+                <Row bsPrefix="profile__row">
+                    <Container className="profile__card-container">
+                        <h1>Profile</h1>
+                        <h2>Hi, {this.state.name}</h2>
+                        <h4>Username: {this.state.username}</h4>
+                        <h4>Email: {this.state.email}</h4>
+                    </Container>
+                </Row>
             </div>
             );
         }

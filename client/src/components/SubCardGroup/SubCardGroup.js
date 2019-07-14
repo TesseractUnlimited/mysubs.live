@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './SubCardGroup.css';
 
 class SubCardGroup extends Component {
@@ -8,6 +9,7 @@ class SubCardGroup extends Component {
             <div className="sub-card-group w-100">
                 <Row bsPrefix="sub-card-group__top-row">
                     <h1>{this.props.title}</h1>
+                    <Link className="sub-card-group__top-row__add-sub-btn" to="/dashboard/add-sub">Add Sub</Link>
                 </Row>
                 <Row className="justify-content-start" bsPrefix="sub-card-group__bottom-row">
                     <Col id="1" bsPrefix="card-group__bottom-row__col" className="col-lg-1"></Col>

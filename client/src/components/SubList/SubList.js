@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import SubCardItem from '../../components/SubCardItem/SubCardItem';
 import * as moment from 'moment';
+import './SubList.css';
 
 class SubList extends Component {
     state = {
@@ -37,7 +38,7 @@ class SubList extends Component {
 
     render() {
         return (
-            <div>
+            <div className="sub-list__sub-holder">
                 {this.state.subs.map((sub, index) => {
                     const nextDate = moment(sub.nextPayment).toDate();
                     const lastDate = moment(sub.lastUsed).toDate();
