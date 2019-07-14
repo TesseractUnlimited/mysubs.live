@@ -1,0 +1,6 @@
+.sub-list__sub-holder {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+}

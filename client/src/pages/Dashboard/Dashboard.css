@@ -22,24 +22,33 @@
     }
 }
 
+.dash {
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
 .dash-row {
     display: -ms-flexbox;
     display: flex;
+    flex-direction: row;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
     justify-content: space-between;
+    width: 100%;
 }
 
-.card-holder__users,
-.card-holder__subs,
-.card-holder__overview {
-    border-radius: 2rem;
+.card-container__users,
+.card-container__subs,
+.card-container__overview {
+    border-radius: 1rem;
     display: flex;
     flex-direction: column;
-    margin: 1rem 0rem;
-    padding: 2rem;
+    padding: 1rem;
     align-content: center;
     align-items: center;
     box-shadow: 

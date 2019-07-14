@@ -44,7 +44,7 @@ class Dashboard extends Component {
 
     render() {
         return (
-            <div className="page-parent">
+            <div className="page-parent dash">
                 <Row bsPrefix="dash-row">
                     {/*
                     <Container className="card-holder__overview col-7">
@@ -60,8 +60,8 @@ class Dashboard extends Component {
                     </Container>
                     */}
                 </Row>    
-                <Row>
-                    <Container className="card-holder__subs">
+                <Row bsPrefix="dash-row">
+                    <Container className="card-container__subs">
                         <SubCardGroup title="Subs">
                             <SubList username={this.props.username} token={this.props.token}/>
                         </SubCardGroup>

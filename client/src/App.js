@@ -12,6 +12,7 @@ import Profile from './pages/Profile/Profile';
 import Settings from './pages/Settings/Settings';
 import Help from './pages/Help/Help';
 import Messages from './pages/Messages/Messages';
+import AddSub from './pages/AddSub/AddSub';
 import './App.css';
 
 class App extends Component {
@@ -198,6 +199,7 @@ class App extends Component {
         if (this.state.isAuth) {
             routes = (
                 <Switch>
+                    <Route path="/dashboard/add-sub" component={AddSub} />
                     <Route path="/dashboard"
                         render={props => (
                             <Dashboard {...props} username={this.state.username} userId={this.state.userId} token={this.state.token} />

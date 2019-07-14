@@ -26,9 +26,9 @@ class SignupCard extends Component {
                         onSubmit={(values, bag) => this.props.onSignup(values, bag)}
                     >   
                         {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
-                            <Form onSubmit={handleSubmit}>
+                            <Form className="signup-card__card__bottom-row__form" onSubmit={handleSubmit}>
                                 <Form.Row bsPrefix="signup-card__card__form__form-row">
-                                    <Form.Group>
+                                    <Form.Group bsPrefix="signup-card__card__form__form-row__form-group">
                                         <Form.Label>Name</Form.Label>
                                         <Form.Control
                                             type="text"
@@ -44,7 +44,7 @@ class SignupCard extends Component {
                                     </Form.Group>
                                 </Form.Row>
                                 <Form.Row bsPrefix="signup-card__card__form__form-row">
-                                    <Form.Group>
+                                    <Form.Group bsPrefix="signup-card__card__form__form-row__form-group">
                                         <Form.Label>Email</Form.Label>
                                         <Form.Control
                                             type="text"
@@ -60,7 +60,7 @@ class SignupCard extends Component {
                                     </Form.Group>
                                 </Form.Row>
                                 <Form.Row bsPrefix="signup-card__card__form__form-row">
-                                    <Form.Group>
+                                    <Form.Group bsPrefix="signup-card__card__form__form-row__form-group">
                                         <Form.Label>Username</Form.Label>
                                         <Form.Control
                                             type="text"
@@ -75,9 +75,9 @@ class SignupCard extends Component {
                                         <Form.Control.Feedback type="invalid">Please enter a valid username.</Form.Control.Feedback>
                                     </Form.Group>
                                 </Form.Row>
-                                <Form.Row bsPrefix="signup-card__card__form__form-row">
-                                    <Col>
-                                        <Form.Group>
+                                <Form.Row id="password-field" bsPrefix="signup-card__card__form__form-row">
+                                    <div className="signup-card__card__form__form-row__form-col">
+                                        <Form.Group bsPrefix="signup-card__card__form__form-row__form-group">
                                             <Form.Label>Password</Form.Label>
                                             <Form.Control
                                                 type="password"
@@ -91,9 +91,9 @@ class SignupCard extends Component {
                                             <Form.Control.Feedback type="valid">Perfect!</Form.Control.Feedback>
                                             <Form.Control.Feedback type="invalid">Please enter a valid password.</Form.Control.Feedback>
                                         </Form.Group>
-                                    </Col>
-                                    <Col>
-                                        <Form.Group>
+                                    </div>
+                                    <div className="signup-card__card__form__form-row__form-col">
+                                        <Form.Group bsPrefix="signup-card__card__form__form-row__form-group">
                                             <Form.Label>Confirm Password</Form.Label>
                                             <Form.Control
                                                 type="password"
@@ -107,7 +107,7 @@ class SignupCard extends Component {
                                             <Form.Control.Feedback type="valid">Perfect!</Form.Control.Feedback>
                                             <Form.Control.Feedback type="invalid">Please enter a valid password.</Form.Control.Feedback>
                                         </Form.Group>
-                                    </Col>
+                                    </div>
                                 </Form.Row>
                                 <Button type="submit" disabled={isSubmitting}>Submit</Button>
                             </Form>
