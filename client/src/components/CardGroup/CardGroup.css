@@ -1,0 +1,18 @@
+.card-group {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.card-group__top-row,
+.card-group__bottom-row {
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: row;
+}
+
+.card-group__bottom-row{
+    padding: 0rem 1rem;
+    margin-bottom: 1rem;
+}

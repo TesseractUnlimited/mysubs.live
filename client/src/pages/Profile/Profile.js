@@ -11,7 +11,7 @@ class Profile extends Component {
     // create a function that goes through a user's subscriptions and prints them out as cards
     componentDidMount() {
         console.log(this.props.username);
-        fetch('api/' + `${this.props.username}`, {
+        fetch('user/' + `${this.props.username}`, {
                 headers: {
                     Authorization: 'Bearer ' + this.props.token,
                     ContentType: 'application/json'
@@ -21,9 +21,13 @@ class Profile extends Component {
                 if (res.status === 400) {
                     throw new Error('User not found!');
                 }
+                else if (res.status === 404) {
+                    throw new Error ('User not found!');
+                }
                 else {
                     res.json()
                         .then(({ user }) => {
+                            console.log(user)
                             this.setState({
                                 name: user.name,
                                 username: user.username,
@@ -34,12 +38,12 @@ class Profile extends Component {
                 }
             })
             .catch(err => {
-                console.log(err);
+                console.log("fetch: " + err);
             });
     }
     render() {
         return (
-            <div>
+            <div className="page-parent">
                 <Container>
                     <h1>Profile</h1>
                     <h2>Hi, {this.state.name}</h2>

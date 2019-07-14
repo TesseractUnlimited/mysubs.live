@@ -1,3 +1,42 @@
-.loginCard {
-    width: 22rem;
+@media (min-width: 576px) {
+    .page-parent {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .page-parent {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .page-parent {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .page-parent {
+        max-width: 1140px;
+    }
+}
+
+.page-parent {
+    flex: 1;
+    padding: 0 1rem;
+    margin: 0rem 1rem;
+}
+
+.login-card__container {
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
+    height: 100%;
 }

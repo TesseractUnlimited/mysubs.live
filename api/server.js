@@ -5,7 +5,10 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // route imports 
-const apiRoutes = require('./routes/api')
+const apiRoutes = require('./routes/api');
+const subRoutes = require('./routes/sub');
+const subsRoutes = require('./routes/subs');
+const userRoutes = require('./routes/user');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -33,6 +36,9 @@ app.use((req, res, next) => {
 
 // '/api' GET route
 app.use('/api', apiRoutes);
+app.use('/sub', subRoutes);
+app.use('/subs', subsRoutes);
+app.use('/user', userRoutes);
 
 app.use((error, req, res, next) => {
     //console.log(error);

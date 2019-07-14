@@ -1,6 +1,7 @@
 .footer {
     background-color: #3854F2;
     width: 100%;
+    flex-shrink: 0;
 }
 
 .footer-container {

@@ -5,7 +5,9 @@ import './CallToActionBtn.css';
 class SignupButton extends Component {
     render() {
         return (
-                <Link className={"nav-link signup-btn " + this.props.class} to={this.props.sendTo}>{this.props.message}</Link>
+            <Link className={this.props.class} to={this.props.sendTo}>
+                {this.props.children}
+            </Link>
         );
     }
 }

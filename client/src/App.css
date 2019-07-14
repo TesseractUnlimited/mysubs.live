@@ -14,14 +14,31 @@
 }
 
 @font-face {
-    font-family: 'gilroy-light';
+    font-family: 'gilroy-regular';
     src: url('../public/fonts/gilroy-regular.otf');
 }
 
-body {
-    font-family: 'gilroy-light';
+.wrapper {
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
-h1 {
+.wrapper>.page-parent{
+    width: 100%;
+    margin: 0 auto;
+}
+
+h1, h2 {
     font-family: 'gilroy-bold';
+}
+
+body, p {
+    font-family: 'gilroy-light';
 }

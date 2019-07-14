@@ -18,95 +18,92 @@ class landingPage extends Component {
     render() {
         return (
             <div>
-                <div className="home">
-                    <Container className="centered">
+                <div className="landing__home">
+                    <Container className="landing__home__container">
                         <Image className="large-logo" src={logo} />
-                        <h1 className="title">The best way to manage your subscriptions.</h1>        
-                        <CallToActionBtn class="centered try-now-btn" message={'Try it Now!'} sendTo={'/signup'} />
+                        <h1 className="landing__home__title">The best way to manage your subscriptions.</h1>        
+                        <CallToActionBtn class="landing__home__try-now-btn" sendTo={'/signup'}>
+                            Try mysubs.live!
+                        </CallToActionBtn>
                     </Container>
                 </div>
-                <div className="product">
+                <div className="landing__product">
                     <Container>
-                        <h1 className="info__title">Product</h1>
+                        <h1 className="landing__product__title">Product</h1>
                         <h6 className="text-muted">Login Once. Access Forever.</h6>
-                        <h3 className="product__text">
+                        <h3 className="landing__product__text">
                             mysubs.live is a subscription management web-app that allows you to control 
                             all aspects of their online subscriptions in one convenient place.
                         </h3>
+                    </Container>
+                </div>
+                <div className="landing__about">   
+                        <Container>
+                            <h1 className="landing__info__title">About</h1>
+                            <h6 className="text-muted">Teamwork makes the dream work.</h6>
+                            <h3>mysubs.live is made by a community college student based in sunny SoCal.</h3>
+                            <Row>
+                                <Col className="team-profile">
+                                    <Image className="team-profile__pic" src={sal} roundedCircle></Image>
+                                    <h3>Salvador Salcedo</h3>
+                                    <h5>Founder & Developer</h5>
+                                </Col>
+                            </Row>
                         </Container>
-                </div>
-                <div className="about">   
-                    <Container>
-                        <h1 className="info__title">About</h1>
-                        <h6 className="text-muted">Teamwork makes the dream work.</h6>
-                        <h3>mysubs.live is made by a team of students based in sunny SoCal.</h3>
-                        <Row>
-                            <Col className="team-profile">
-                                <Image className="team-profile__pic" src={sal} roundedCircle></Image>
-                                <h3>Salvador Salcedo</h3>
-                                <h5>Founder & Developer</h5>
-                            </Col>
-                            <Col className="team-profile">
-                                <Image className="team-profile__pic" src={sal} roundedCircle />
-                                <h3>Logan Levitre</h3>
-                                <h5>Developer</h5>
-                            </Col>
-                        </Row>
-                    </Container>
-                </div>
-                <div className="contact">
-                    <Container>
-                        <h1 className="info__title">Contact</h1>
-                        <h6 className="text-muted">Hit us up.</h6>
-                    </Container>
-                </div>
-                <div className="feedback">
-                    <Container>
-                        <h1 className="info__title">Feedback</h1>
-                        <h6 className="text-muted">Help us improve our product!</h6>
-                        <Formik
-                            validationSchema={schema}
-                            onSubmit={console.log}
-                            initialValues={{ name: '', email: '', message: '' }}
-                        >
-                            {({ handleSubmit, handleChange, handleBlur, values, touched, isValid, errors }) => (
-                                <Form className="feedback__form">
-                                    <Form.Group>
-                                        <Form.Label>Name</Form.Label>
-                                        <Form.Control
-                                            type="text"
-                                            placeholder="Name"
-                                            name="name"
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            value={values.name}
-                                        />
-                                        <Form.Label>Email</Form.Label>
-                                        <Form.Control
-                                            type="text"
-                                            placeholder="Email@domain.com"
-                                            name="email"
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            value={values.email}
-                                        />
-                                        <Form.Label>Message</Form.Label>
-                                        <Form.Control
-                                            as = "textarea"
-                                            rows = "5"
-                                            type="text"
-                                            placeholder="Feedback :)"
-                                            name="message"
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            value={values.message}
-                                        />
-                                    </Form.Group>
-                                </Form>
-                            )}
-                        </Formik>
-                    </Container>
-                </div>
+                    </div>
+                <div className="landing__contact">
+                        <Container>
+                            <h1 className="landing__info__title">Contact</h1>
+                            <h6 className="text-muted">Hit us up.</h6>
+                        </Container>
+                    </div>
+                <div className="landing__feedback">
+                        <Container>
+                            <h1 className="landing__info__title">Feedback</h1>
+                            <h6 className="text-muted">Help us improve our product!</h6>
+                            <Formik
+                                validationSchema={schema}
+                                onSubmit={console.log}
+                                initialValues={{ name: '', email: '', message: '' }}
+                            >
+                                {({ handleSubmit, handleChange, handleBlur, values, touched, isValid, errors }) => (
+                                    <Form className="feedback__form">
+                                        <Form.Group bsPrefix="feedback__form-group">
+                                            <Form.Label>Name</Form.Label>
+                                            <Form.Control
+                                                type="text"
+                                                placeholder="Name"
+                                                name="name"
+                                                onChange={handleChange}
+                                                onBlur={handleBlur}
+                                                value={values.name}
+                                            />
+                                            <Form.Label>Email</Form.Label>
+                                            <Form.Control
+                                                type="text"
+                                                placeholder="Email@domain.com"
+                                                name="email"
+                                                onChange={handleChange}
+                                                onBlur={handleBlur}
+                                                value={values.email}
+                                            />
+                                            <Form.Label>Message</Form.Label>
+                                            <Form.Control
+                                                as = "textarea"
+                                                rows = "5"
+                                                type="text"
+                                                placeholder="Feedback :)"
+                                                name="message"
+                                                onChange={handleChange}
+                                                onBlur={handleBlur}
+                                                value={values.message}
+                                            />
+                                        </Form.Group>
+                                    </Form>
+                                )}
+                            </Formik>
+                        </Container>
+                    </div>
             </div>
         );
     }

@@ -1,7 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './Footer.css';
-import Nav from 'react-bootstrap/Nav';
-import Container from 'react-bootstrap/Container';
+import { Nav, Container } from 'react-bootstrap';
 import Logo from '../Logo/Logo';
 import React, { Component } from "react";
 
