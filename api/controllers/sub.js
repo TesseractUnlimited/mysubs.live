@@ -27,14 +27,24 @@ exports.updateUserSubData = (req, res, next) => {
     }
 
     const idQuery = req.params.subId;
+
     const newSubName = req.body.subName;
     const newURL = req.body.url;
+    const newPrice = req.body.price;
+    const newNextPayment = req.body.nextPayment;
+    const newLastUsed = req.body.lastUsed;
+    const newRenewal = req.body.renewal;
+
     Sub.findById(idQuery)
         .exec(sub => {
             if (!sub) res.status(404).json({ msg: "Sub not found." });
             else {
                 if (newSubName && newSubName != sub.subName) sub.subName = newSubName;
                 if (newURL && newURL != sub.url) sub.url = newURL;
+                if (newPrice && newPrice != sub.price) sub.price = newPrice;
+                if (newNextPayment && newNextPayment != sub.nextPayment) sub.nextPayment = newNextPayment;
+                if (newLastUsed && newLastUsed != sub.lastUsed) sub.lastUsed = newLastUsed;
+                if (newRenewal && newRenewal != sub.renewal) sub.renewal = newRenewal;
                 sub.save();
                 res.status(200).json({ updatedSub: sub, msg: "Sub succesfully updated!" });
             } 

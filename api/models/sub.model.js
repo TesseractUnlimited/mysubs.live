@@ -29,6 +29,10 @@ const subSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User'
+    },
+    renewal: {
+        type: String,
+        required: true
     }
 },
 {
