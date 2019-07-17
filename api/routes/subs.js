@@ -17,7 +17,13 @@ subsRouter.route('/:username')
             .isURL().withMessage('Must be a valid URL.'),
         body('price')
             .trim()
-            .not().isEmpty().withMessage('Price cannot be empty.')
+            .not().isEmpty().withMessage('Price cannot be empty.'),
+        body('lastUsed')
+            .not().isEmpty().withMessage('Last Used cannot be empty.'),
+        body('nextPayment')
+            .not().isEmpty().withMessage('Next payment cannot be empty.'),
+        body('renewal')
+            .not().isEmpty().withMessage('Renewal cannot be empty.')
     ], subsController.addUserSub);
 
 module.exports = subsRouter;

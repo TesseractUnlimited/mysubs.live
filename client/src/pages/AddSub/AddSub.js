@@ -8,7 +8,7 @@ export default class AddSub extends Component {
         return (
             <div className="page-parent">    
                 <div className="add-sub__container">
-                    <AddSubCard />
+                    <AddSubCard addSubHandler={this.props.addSubHandler} username={this.props.username}/>
                 </div>
             </div>
         );

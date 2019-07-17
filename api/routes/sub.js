@@ -4,7 +4,7 @@ const subController = require('../controllers/sub');
 const router = express.Router();
 const isAuth = require('../middleware/is-auth');
 
-router.route('/:username/subs/:subId')
+router.route('/:username/:subId')
     .get(isAuth, subController.getUserSubData) //done
     .patch([
         isAuth,

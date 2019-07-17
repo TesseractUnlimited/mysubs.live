@@ -20,7 +20,6 @@ const schema = yup.object().shape({
     lastUsed: yup.date()
         .required('Last used date is required.')
 });
-
 class AddSubCard extends Component {
     render() {
         return (
@@ -30,9 +29,16 @@ class AddSubCard extends Component {
                 </Row>
                 <Row bsPrefix="add-sub-card__card__bottom-row">
                     <Formik
-                        initialValues={{ name: '', url: '' }}
+                        initialValues={{
+                            name: '',
+                            url: '',
+                            price: 0,
+                            renewal: '',
+                            nextPayment: new Date().toLocaleDateString('en-CA'),
+                            lastUsed: new Date().toLocaleDateString('en-CA')
+                        }}
                         validationSchema={schema}
-                        onSubmit={(values, bag) => this.props.onadd-sub(values, bag)}
+                        onSubmit={(values) => this.props.addSubHandler(values)}
                         
                     >
                         {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => (

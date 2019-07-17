@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container, Form , Row, Image, Col } from "react-bootstrap";
 import { Formik } from 'formik';
 import * as yup from 'yup';
-import CallToActionBtn from '../../components/CallToActionBtn/CallToActionBtn';
+import PrimaryButton from '../../components/PrimaryButton/PrimaryButton';
 import './Landing.css';
 
 const sal = require('../../../public/images/sal.png');
@@ -22,9 +22,9 @@ class landingPage extends Component {
                     <Container className="landing__home__container">
                         <Image className="large-logo" src={logo} />
                         <h1 className="landing__home__title">The best way to manage your subscriptions.</h1>        
-                        <CallToActionBtn class="landing__home__try-now-btn" sendTo={'/signup'}>
+                        <PrimaryButton class="landing__home__try-now-btn" sendTo={'/signup'}>
                             Try mysubs.live!
-                        </CallToActionBtn>
+                        </PrimaryButton>
                     </Container>
                 </div>
                 <div className="landing__product">

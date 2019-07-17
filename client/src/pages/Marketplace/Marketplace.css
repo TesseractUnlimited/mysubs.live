@@ -1,12 +1,14 @@
-.login-card__container {
+.market-card__container {
     display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
     margin-right: auto;
     margin-left: auto;
     height: 100%;
+}
+.market-card__container__carousel {
+    height: 45%;
+    width: 90%;
 }

@@ -40,3 +40,9 @@
     position: relative;
     width: 100%;
 }
+
+.sub-card-item__link,
+.sub-card-item__link:hover{
+    color: black !important;
+    text-decoration: none !important;
+}

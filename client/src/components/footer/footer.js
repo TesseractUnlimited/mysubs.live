@@ -1,4 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.css';
 import './Footer.css';
 import { Nav, Container } from 'react-bootstrap';
 import Logo from '../Logo/Logo';
@@ -10,8 +9,8 @@ export default class Footer extends Component {
             <Nav className="footer">
                 <Container className="d-flex justify-content-center align-items-center footer-container">
                     <Logo />
-                    <Nav.Link>Terms</Nav.Link>
-                    <Nav.Link>Privacy Policy</Nav.Link>
+                    <Nav.Link className="footer__nav-link">Terms</Nav.Link>
+                    <Nav.Link className="footer__nav-link">Privacy Policy</Nav.Link>
                 </Container>
             </Nav>
         );
