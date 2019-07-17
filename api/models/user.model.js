@@ -30,7 +30,13 @@ const userSchema = new Schema({
     subs: [{
         type: Schema.Types.ObjectId,
         ref: 'Sub'
-    }]
+    }],
+    isPartner: {
+        type: Boolean,
+    },
+    isAdmin: {
+        type: Boolean,
+    }
 },
 {
     timestamps: true

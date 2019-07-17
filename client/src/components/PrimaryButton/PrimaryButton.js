@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './CallToActionBtn.css';
+import './PrimaryButton.css';
 
-class SignupButton extends Component {
+class PrimaryButton extends Component {
     render() {
         return (
             <Link className={this.props.class} to={this.props.sendTo}>
@@ -12,4 +12,4 @@ class SignupButton extends Component {
     }
 }
 
-export default SignupButton;
+export default PrimaryButton;

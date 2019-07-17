@@ -1,5 +1,6 @@
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import React, { Component, Fragment } from "react";
+import moment from 'moment';
 import Error from './pages/404/404';
 import landingPage from './pages/Landing/Landing';
 import Signup from './pages/Signup/Signup';
@@ -13,7 +14,10 @@ import Settings from './pages/Settings/Settings';
 import Help from './pages/Help/Help';
 import Messages from './pages/Messages/Messages';
 import AddSub from './pages/AddSub/AddSub';
+import Marketplace from './pages/Marketplace/Marketplace';
+import SubDetail from "./pages/SubDetail/SubDetail";
 import './App.css';
+
 
 class App extends Component {
     state = {
@@ -58,7 +62,7 @@ class App extends Component {
 
     loginHandler = (values, bag) => {
         this.setState({ authLoading: true });
-        fetch('api/login', {
+        fetch('user/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -128,7 +132,7 @@ class App extends Component {
 
     signupHandler = (values, bag) => {
         this.setState({ authLoading: true });
-        fetch('api/signup', {
+        fetch('user/signup', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -179,6 +183,51 @@ class App extends Component {
         });
     };
 
+    addSubHandler = (values) => {
+        fetch('/subs/' + this.state.username, {
+                method: 'PUT',
+                headers: {
+                    Authorization: 'Bearer ' + this.state.token,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: values.name,
+                    url: values.url,
+                    price: values.price,
+                    renewal: values.renewal,
+                    nextPayment: moment(values.nextPayment, "YYYY-MM-DD").toDate(),
+                    lastUsed: moment(values.lastUsed, "YYYY-MM-DD").toDate()
+                })
+            })
+            .then(res => {
+                if (res.status === 422) {
+                    res.json()
+                        .then(data => {
+                            console.log(data);
+                            throw new Error(data.message);
+                        })
+                        .catch(err => console.log(err));
+                } else if (res.status === 401) {
+                    res.json()
+                        .then(data => {
+                            console.log(data);
+                            throw new Error(data.message);
+                        })
+                        .catch(err => console.log(err));
+                } else if (res.status !== 200 && res.status !== 201) {
+                    res.json()
+                        .then(data => {
+                            console.log(data);
+                            throw new Error(data.message);
+                        })
+                        .catch(err => console.log(err));
+                } else {
+                    this.props.history.push("/dashboard");
+                }
+            })
+            .catch(err => { throw err });
+    }
+
     render() {
         let routes = (
             <Switch>
@@ -199,15 +248,40 @@ class App extends Component {
         if (this.state.isAuth) {
             routes = (
                 <Switch>
-                    <Route path="/dashboard/add-sub" component={AddSub} />
+                    <Route path="/dashboard/sub-detail/:subId"
+                        render={props => (
+                            <SubDetail {...props}
+                                username={this.state.username}
+                                token={this.state.token}
+                                />
+                        )} />
+                    <Route path="/dashboard/add-sub"
+                        render={props => (
+                            <AddSub {...props}
+                                username={this.state.username}
+                                token={this.state.token}
+                                addSubHandler={this.addSubHandler} / >
+                        )} />
                     <Route path="/dashboard"
                         render={props => (
-                            <Dashboard {...props} username={this.state.username} userId={this.state.userId} token={this.state.token} />
+                            <Dashboard {...props}
+                                username={this.state.username}
+                                userId={this.state.userId}
+                                token={this.state.token} />
+                        )} />
+                    <Route path="/marketplace"
+                        render={props => (
+                            <Marketplace {...props}
+                                username={this.state.username}
+                                userId={this.state.userId}
+                                token={this.state.token} />
                         )} />
                     <Route
                         path="/profile"
                         render={props => (
-                            <Profile {...props} username={this.state.username} token={this.state.token} />
+                            <Profile {...props}
+                                username={this.state.username}
+                                token={this.state.token} />
                         )} />
                     />
                     <Route path='/settings' component={Settings} />

@@ -4,7 +4,7 @@ import { Nav, Navbar, Container } from 'react-bootstrap';
 import Logo from '../Logo/Logo';
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import CallToActionBtn from '../CallToActionBtn/CallToActionBtn';
+import PrimaryButton from '../PrimaryButton/PrimaryButton';
 
 export default class LandingHeader extends Component { 
     render() {
@@ -23,9 +23,9 @@ export default class LandingHeader extends Component {
                         </Nav>
                         <Nav className="mr-right">
                             <Link className="landing-page__header__navbar__nav-link" to="/login">Login</Link>
-                            <CallToActionBtn class="landing-page__header__navbar__sign-up-btn" sendTo={'/signup'}>
+                            <PrimaryButton class="landing-page__header__navbar__sign-up-btn" sendTo={'/signup'}>
                                 Sign Up
-                            </CallToActionBtn>
+                            </PrimaryButton>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

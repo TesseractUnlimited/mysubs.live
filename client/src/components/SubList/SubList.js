@@ -46,6 +46,7 @@ class SubList extends Component {
                         key={index}
                         name={sub.name}
                         price={sub.price}
+                        subId={sub._id}
                         nextPayment={`${nextDate.getUTCMonth()}/${nextDate.getUTCDay()}/${nextDate.getUTCFullYear()}`}
                         lastUsed={`${lastDate.getUTCMonth()}/${lastDate.getUTCDay()}/${lastDate.getUTCFullYear()}`}
                     />

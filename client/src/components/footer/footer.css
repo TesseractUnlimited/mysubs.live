@@ -1,9 +1,23 @@
+.footer-container {
+    padding: 0.5rem 0rem;
+}
+
 .footer {
     background-color: #3854F2;
     width: 100%;
     flex-shrink: 0;
 }
 
-.footer-container {
-    padding: 0.5rem 0rem;
+.footer__nav-link,
+.footer__nav-link>a {
+    padding: 0.5rem 1rem !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+.footer__nav-link:hover,
+.footer__nav-link>a:hover {
+    transition: all 0.3s ease 0s !important;
+    color: #FFD33B !important;
+    text-decoration: none !important;
 }
