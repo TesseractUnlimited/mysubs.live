@@ -31,24 +31,27 @@ class landingPage extends Component {
                     <Container>
                         <h1 className="landing__product__title">Product</h1>
                         <h6 className="text-muted">Login Once. Access Forever.</h6>
-                        <h3 className="landing__product__text">
-                            mysubs.live is a subscription management web-app that allows you to control 
-                            all aspects of their online subscriptions in one convenient place.
-                        </h3>
+                        <div className="landing__product__text-container">
+                            <h3 className="landing__product__text">
+                                mysubs.live is a subscription management web-app that allows you to control 
+                                all aspects of their online subscriptions in one convenient place.
+                            </h3>
+                        </div>
+                        
                     </Container>
                 </div>
                 <div className="landing__about">   
                         <Container>
                             <h1 className="landing__info__title">About</h1>
-                            <h6 className="text-muted">Teamwork makes the dream work.</h6>
-                            <h3>mysubs.live is made by a community college student based in sunny SoCal.</h3>
-                            <Row>
-                                <Col className="team-profile">
-                                    <Image className="team-profile__pic" src={sal} roundedCircle></Image>
-                                    <h3>Salvador Salcedo</h3>
-                                    <h5>Founder & Developer</h5>
-                                </Col>
-                            </Row>
+                        <h6 className="text-muted">Teamwork makes the dream work.</h6>
+                        <div className="landing__about__container">
+                            <Col className="team-profile">
+                                <Image className="team-profile__pic" src={sal} roundedCircle></Image>
+                                <h3>Salvador Salcedo</h3>
+                                <h5>Founder & Developer</h5>
+                            </Col>
+                           <h3>mysubs.live is made by a community college student based in sunny SoCal.</h3>
+                        </div>  
                         </Container>
                     </div>
                 <div className="landing__contact">

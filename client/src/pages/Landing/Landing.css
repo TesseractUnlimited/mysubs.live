@@ -52,6 +52,7 @@
 .landing__about,
 .landing__feedback,
 .landing__contact {
+    display: flex;
     justify-items: center;
     height: 40rem;
     padding: 1rem 0rem;
@@ -64,11 +65,12 @@
 }
 
 .landing__product__title {
-    margin: 2rem 0rem 0.5rem 0rem;
+    margin: 0rem 0rem 0.5rem 0rem;
 }
 
 .team-profile {
-    margin: 2rem 0rem;
+    flex-grow: 0 !important;
+    margin: 1rem 0rem;
 }
 
 .team-profile__pic {
@@ -89,4 +91,12 @@
 
 .feedback__form-group {
     width: 50%;
+}
+
+.landing__product__text-container,
+.landing__about__container {
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

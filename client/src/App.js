@@ -228,6 +228,10 @@ class App extends Component {
             .catch(err => { throw err });
     }
 
+    removeSubHandler = () => {
+
+    }
+
     render() {
         let routes = (
             <Switch>
@@ -262,7 +266,7 @@ class App extends Component {
                                 token={this.state.token}
                                 addSubHandler={this.addSubHandler} / >
                         )} />
-                    <Route path="/dashboard"
+                    <Route exact path="/dashboard"
                         render={props => (
                             <Dashboard {...props}
                                 username={this.state.username}

@@ -5,11 +5,17 @@ import './SubDetail.css';
 
 export default class SubDetail extends Component {
     state = {
-        sub: null
+        name: '',
+        desc: '',
+        url: '',
+        price: 0,
+        billingCycle: '',
+        billingDate: new Date().toLocaleDateString('en-CA'),
+        lastUsed: new Date().toLocaleDateString('en-CA')
     }
 
-    componentDidMount() {
-        fetch(`/sub/${this.props.username}/${this.props.subId}`, {
+    componentDidMount() { 
+        fetch(`/sub/${this.props.username}/${this.props.match.params.subId}`, {
             method: "GET",
             headers: {
                 Authorization: 'Bearer ' + this.props.token,
@@ -23,9 +29,15 @@ export default class SubDetail extends Component {
                     throw new Error('Sub not found!');
                 } else {
                     res.json()
-                        .then(sub => {
+                        .then(({ sub }) => {
                             this.setState({
-                                sub: sub
+                                name: sub.name,
+                                desc: sub.desc,
+                                url: sub.url,
+                                price: sub.price,
+                                billingCycle: sub.billingCycle,
+                                billingDate: sub.billingDate,
+                                lastUsed: sub.lastUsed
                             });
                         })
                         .catch(err => console.log(err));
@@ -35,12 +47,20 @@ export default class SubDetail extends Component {
                 console.log("fetch: " + err);
             });
         }
-    
+
     render() {
         return (
             <div className="page-parent">    
                 <Container className="sub-detail-card__container">
-                    <SubDetailCard sub={this.state.sub}/>
+                    <SubDetailCard
+                        name={this.state.name} 
+                        desc={this.state.desc}
+                        url={this.state.url}
+                        price={this.state.price}
+                        billingCycle={this.state.billingCycle}
+                        billingDate={this.state.billingDate}
+                        lastUsed={this.state.lastUsed}
+                    />
                 </Container>
             </div>
         );

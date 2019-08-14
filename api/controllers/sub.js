@@ -7,13 +7,13 @@ exports.getUserSubData = (req, res, next) => {
     const idQuery = req.params.subId;
 
     Sub.findById(idQuery)
-        .exec(sub => {
-            if (!sub) res.status(404).json({ msg: "Sub not found." });
+        .exec((err, sub) => {
+            if (err) res.status(404).json({ msg: "Sub not found." });
             else {
                 User.findOne({ username: userQuery })
-                    .exec(user => {
-                        if (user._id.toString() === sub.user.toString()) res.status(200).json(sub);
-                        else res.status(404).json({ msg: "Sub user id doesnt not match id for provided username." });
+                    .exec((err, user) => {
+                        if (err) res.status(404).json({ msg: "Sub user id doesnt not match id for provided username." })
+                        else if (user._id.toString() === sub.user.toString()) res.status(200).json({ sub: sub });
                     });
             } 
         });
@@ -29,22 +29,24 @@ exports.updateUserSubData = (req, res, next) => {
     const idQuery = req.params.subId;
 
     const newSubName = req.body.subName;
+    const newDesc = req.body.desc;
     const newURL = req.body.url;
     const newPrice = req.body.price;
-    const newNextPayment = req.body.nextPayment;
+    const newBillingCycle = req.body.billingCycle;
+    const newBillingDate = req.body.billingDate;
     const newLastUsed = req.body.lastUsed;
-    const newRenewal = req.body.renewal;
-
+    
     Sub.findById(idQuery)
         .exec(sub => {
             if (!sub) res.status(404).json({ msg: "Sub not found." });
             else {
                 if (newSubName && newSubName != sub.subName) sub.subName = newSubName;
+                if (newDesc && newDesc != sub.desc) sub.desc = newDesc;
                 if (newURL && newURL != sub.url) sub.url = newURL;
                 if (newPrice && newPrice != sub.price) sub.price = newPrice;
-                if (newNextPayment && newNextPayment != sub.nextPayment) sub.nextPayment = newNextPayment;
+                if (newBillingCycle && newBillingCycle != sub.billingCycle) sub.billingCycle = newBillingCycle;
+                if (newBillingDate && newBillingDate != sub.BillingDate) sub.BillingDate = newBillingDate;
                 if (newLastUsed && newLastUsed != sub.lastUsed) sub.lastUsed = newLastUsed;
-                if (newRenewal && newRenewal != sub.renewal) sub.renewal = newRenewal;
                 sub.save();
                 res.status(200).json({ updatedSub: sub, msg: "Sub succesfully updated!" });
             } 
