@@ -8,6 +8,10 @@ const subSchema = new Schema({
         required: true,
         trim: true,
     },
+    desc: {
+        type: String,
+        trim: true
+    },
     url: {
         type: String,
         required: true,
@@ -18,7 +22,11 @@ const subSchema = new Schema({
         required: true,
         trim: true,
     },
-    nextPayment: {
+    billingCycle: {
+        type: String,
+        required: true
+    },
+    billingDate: {
         type: Date,
         required: true
     },
@@ -29,10 +37,6 @@ const subSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User'
-    },
-    renewal: {
-        type: String,
-        required: true
     }
 },
 {

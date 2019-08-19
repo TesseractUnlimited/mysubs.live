@@ -22,11 +22,12 @@ exports.addUserSub = (req, res, next) => {
     const userQuery = req.params.username;
     const newSub = new Sub({
         name: req.body.name,
+        desc: req.body.desc,
         url: req.body.url,
         price: req.body.price,
-        nextPayment: req.body.nextPayment,
+        billingCycle: req.body.billingCycle,
+        billingDate: req.body.billingDate,
         lastUsed: req.body.lastUsed,
-        renewal: req.body.renewal
     });
     User.findOne({ username: userQuery })
         .exec((err, user) => {

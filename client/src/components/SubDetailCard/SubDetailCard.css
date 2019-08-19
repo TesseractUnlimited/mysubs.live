@@ -20,6 +20,6 @@
 .sub-detail-card__card__bottom-row {
     display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
 }

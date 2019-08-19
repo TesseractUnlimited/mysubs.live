@@ -44,9 +44,7 @@ class SubList extends Component {
                     const lastDate = moment(sub.lastUsed).toDate();
                     return <SubCardItem
                         key={index}
-                        name={sub.name}
-                        price={sub.price}
-                        subId={sub._id}
+                        sub={sub}
                         nextPayment={`${nextDate.getUTCMonth()}/${nextDate.getUTCDay()}/${nextDate.getUTCFullYear()}`}
                         lastUsed={`${lastDate.getUTCMonth()}/${lastDate.getUTCDay()}/${lastDate.getUTCFullYear()}`}
                     />
