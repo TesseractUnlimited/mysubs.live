@@ -5,7 +5,8 @@ module.exports = {
     entry: "./src/index.js",
     mode: "development",
     module: {
-        rules: [{
+        rules: [
+            {
                 test: /\.(js|jsx)$/,
                 exclude: /(node_modules|bower_components)/,
                 loader: "babel-loader",
