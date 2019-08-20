@@ -11,10 +11,7 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 exclude: /(node_modules|bower_components)/,
-                loader: "babel-loader",
-                options: {
-                    presets: ["@babel/env"]
-                }
+                loader: "babel-loader"
             },
             {
                 test: /\.css$/,
@@ -25,17 +22,22 @@ module.exports = {
                 use: ['file-loader']
             },
             {
-                test: /\.(otf|ttf)/,
+                test: /\.(otf|ttf)$/,
                 use: ['url-loader']
+            },
+            {
+                test: /\.(html)$/,
+                use: {
+                    loader: 'html-loader'
+                }
             }
         ]
     },
-    resolve: {
-        extensions: ["*", ".js", ".jsx"]
-    },
     plugins: [
         new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin({ title: 'Production' })
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'public/index.html')
+        })
     ],
     output: {
         filename: 'bundle.js',
