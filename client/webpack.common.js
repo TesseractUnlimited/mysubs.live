@@ -1,11 +1,14 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
     entry: {
         app: './src/index.js'
     },
+    target: 'web',
     module: {
         rules: [
             {
@@ -15,7 +18,14 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ["style-loader", "css-loader"]
+                use: [{
+                    loader: MiniCssExtractPlugin.loader,
+                    options: {
+                        hmr: process.env.NODE_ENV === 'development',
+                    },
+                },
+                'css-loader',
+                ],
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
@@ -27,9 +37,7 @@ module.exports = {
             },
             {
                 test: /\.(html)$/,
-                use: {
-                    loader: 'html-loader'
-                }
+                use: ['html-loader']
             }
         ]
     },
@@ -37,10 +45,12 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'public/index.html')
-        })
+        }),
+        new MiniCssExtractPlugin()
     ],
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        globalObject: `typeof self !== 'undefined' ? self : this`
     }
 };
