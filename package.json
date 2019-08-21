@@ -12,10 +12,11 @@
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.24.0",
     "mongoose": "^5.6.1",
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.1",
+    "path": "^0.12.7"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "node server.js && cd client && npm install --only=dev && npm install && npm run build",
     "dev": "nodemon server.js"
   }
 }

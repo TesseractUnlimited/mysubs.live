@@ -1,13 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
 
 const app = express();
 const port = process.env.PORT || 5000;
 
 // route imports 
-const subRoutes = require('./routes/sub');
-const subsRoutes = require('./routes/subs');
-const userRoutes = require('./routes/user');
+const subRoutes = require('./api/routes/sub');
+const subsRoutes = require('./api/routes/subs');
+const userRoutes = require('./api/routes/user');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -32,6 +33,9 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
 });
+
+// Serve the static files from the React app
+app.use(express.static(path.join(__dirname, 'client/dist')));
 
 // '/api' GET route
 app.use('/sub', subRoutes);
