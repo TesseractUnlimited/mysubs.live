@@ -1,6 +1,8 @@
 {
   "name": "mysubslive",
-  "version": "0.0.1",
+  "version": "0.1",
+  "description": "Main folder and server for mysubs.live",
+  "author": "Salvador Salcedo",
   "private": true,
   "main": "server.js",
   "dependencies": {
