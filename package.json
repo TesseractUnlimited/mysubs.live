@@ -1,6 +1,6 @@
 {
-  "name": "mysubslive-starter",
-  "version": "0.0.7",
+  "name": "mysubslive",
+  "version": "0.0.1",
   "private": true,
   "main": "server.js",
   "dependencies": {
