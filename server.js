@@ -16,6 +16,11 @@ app.use(express.urlencoded({ extended: true }));
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, 'client/dist')));
 
+// Send index.html when new route appears
+app.get('*',  (req, res, next) => {
+    res.sendFile(path.resolve(__dirname, 'dist', 'index.html'))
+});
+
 // Database Connection
 const uri = 'mongodb+srv://ssalcedo00:nalgonio1@cluster0-vtosk.mongodb.net/test?retryWrites=true&w=majority';
 mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true })
