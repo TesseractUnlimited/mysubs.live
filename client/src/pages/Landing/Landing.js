@@ -5,8 +5,8 @@ import * as yup from 'yup';
 import PrimaryButton from '../../components/PrimaryButton/PrimaryButton';
 import './Landing.css';
 
-const sal = require('../../../public/images/sal.png');
-const logo = require('../../../public/images/logo-white.png')
+const sal = require('../../static/images/sal.png');
+const logo = require('../../static/images/logo-white.png');
 
 const schema = yup.object({
     name: yup.string().required().trim(),

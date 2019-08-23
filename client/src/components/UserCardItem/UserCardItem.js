@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Card, Row, Col, Image, Badge } from 'react-bootstrap';
 import './UserCardItem.css';
 
-const image = require('../../../public/images/sal.png');
+const image = require('../../static/images/sal.png');
 
 class UserCardItem extends Component {
     render() {

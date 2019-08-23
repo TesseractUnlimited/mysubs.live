@@ -3,7 +3,7 @@ import { Card, Row, Col, Image, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './SubCardItem.css';
 
-const image = require('../../../public/images/sal.png');
+const image = require('../../static/images/sal.png');
 
 class SubCardItem extends Component {
     render() {
