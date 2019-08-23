@@ -1,21 +1,21 @@
 @font-face {
     font-family: 'gilroy-bold';
-    src: url('../public/fonts/gilroy-bold.otf');
+    src: url('./static/fonts/gilroy-bold.otf');
 }
 
 @font-face {
     font-family: 'gilroy-light';
-    src: url('../public/fonts/gilroy-light.otf');
+    src: url('./static/fonts/gilroy-light.otf');
 }
 
 @font-face {
     font-family: 'gilroy-medium';
-    src: url('../public/fonts/gilroy-medium.otf');
+    src: url('./static/fonts/gilroy-medium.otf');
 }
 
 @font-face {
     font-family: 'gilroy-regular';
-    src: url('../public/fonts/gilroy-regular.otf');
+    src: url('./static/fonts/gilroy-regular.otf');
 }
 
 @media (min-width: 576px) {

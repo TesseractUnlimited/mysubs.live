@@ -5,6 +5,7 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 5000;
 
+
 // route imports 
 const subRoutes = require('./api/routes/sub');
 const subsRoutes = require('./api/routes/subs');
@@ -12,6 +13,9 @@ const userRoutes = require('./api/routes/user');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Serve the static files from the React app
+app.use(express.static(path.join(__dirname, 'client/dist')));
 
 app.use((error, req, res, next) => {
     console.log(error);
@@ -34,8 +38,6 @@ app.use((req, res, next) => {
     next();
 });
 
-// Serve the static files from the React app
-app.use(express.static(path.join(__dirname, 'client/dist')));
 
 // '/api' GET route
 app.use('/sub', subRoutes);
