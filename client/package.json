@@ -1,13 +1,14 @@
 {
   "name": "mysubs.live-client",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "Client for mysubs.live",
   "main": "index.js",
+  "private": true,
   "scripts": {
-    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "dev": "webpack-dev-server --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"
   },
-  "author": "",
+  "author": "Salvador Salcedo",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.1.0",
@@ -23,6 +24,7 @@
     "file-loader": "^4.0.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
     "style-loader": "^0.23.0",
     "url-loader": "^2.0.0",
     "webpack": "^4.19.1",
@@ -32,6 +34,7 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
+    "aws-sdk": "^2.513.0",
     "bootstrap": "^4.3.1",
     "cors": "^2.8.5",
     "formik": "^1.5.7",

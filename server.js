@@ -1,24 +1,22 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
 
 const app = express();
 const port = process.env.PORT || 5000;
 
-// route imports 
-const subRoutes = require('./routes/sub');
-const subsRoutes = require('./routes/subs');
-const userRoutes = require('./routes/user');
+// Route Imports 
+const subRoutes = require('./api/routes/sub');
+const subsRoutes = require('./api/routes/subs');
+const userRoutes = require('./api/routes/user');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use((error, req, res, next) => {
-    console.log(error);
-    const status = error.statusCode || 500;
-    const message = error.message;
-    const data = error.data;
-    res.status(status).json({ message: message });
-})
+// Serve the static files from the React app
+app.use(express.static(path.join(__dirname, 'client/dist')));
+
+// Database Connection
 const uri = 'mongodb+srv://ssalcedo00:nalgonio1@cluster0-vtosk.mongodb.net/test?retryWrites=true&w=majority';
 mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true })
 const connection = mongoose.connection;
@@ -26,6 +24,7 @@ connection.once('open', () => {
     console.log("MongoDB database connection established successfully.");
 })
 
+// Header Settings
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
