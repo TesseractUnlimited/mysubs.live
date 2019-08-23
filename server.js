@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'client/dist')));
 
 // Send index.html when new route appears
-app.get('*',  (req, res, next) => {
+app.get('/*',  (req, res, next) => {
     res.sendFile(path.resolve(__dirname, 'dist', 'index.html'))
 });
 
