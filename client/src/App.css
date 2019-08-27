@@ -19,25 +19,29 @@
 }
 
 @media (min-width: 576px) {
-    .page-parent {
+    .page-parent,
+    .cont {
         max-width: 540px;
     }
 }
 
 @media (min-width: 768px) {
-    .page-parent {
+    .page-parent,
+    .cont {
         max-width: 720px;
     }
 }
 
 @media (min-width: 992px) {
-    .page-parent {
+    .page-parent,
+    .cont {
         max-width: 960px;
     }
 }
 
 @media (min-width: 1200px) {
-    .page-parent {
+    .page-parent,
+    .cont {
         max-width: 1140px;
     }
 }
