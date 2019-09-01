@@ -13,9 +13,6 @@ const userRoutes = require('./api/routes/user');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve the static files from the React app
-app.use(express.static(path.join(__dirname, 'client', 'dist')));
-
 // Database Connection
 const uri = 'mongodb+srv://ssalcedo00:nalgonio1@cluster0-vtosk.mongodb.net/test?retryWrites=true&w=majority';
 mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true })
@@ -31,6 +28,9 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
 });
+
+// Serve the static files from the React app
+app.use(express.static(path.join(__dirname, 'client', 'dist')));
 
 // '/api' GET route
 app.use('/sub', subRoutes);
