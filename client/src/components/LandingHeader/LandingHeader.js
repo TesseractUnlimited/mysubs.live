@@ -4,6 +4,7 @@ import { Nav, Navbar, Container } from 'react-bootstrap';
 import Logo from '../Logo/Logo';
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link';
 import PrimaryButton from '../PrimaryButton/PrimaryButton';
 
 export default class LandingHeader extends Component { 
@@ -15,11 +16,11 @@ export default class LandingHeader extends Component {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-                            <Link className="landing-page__header__navbar__nav-link" to="/">Home</Link>
-                            <Link className="landing-page__header__navbar__nav-link" to="/">Product</Link>
-                            <Link className="landing-page__header__navbar__nav-link" to="/">About</Link>
-                            <Link className="landing-page__header__navbar__nav-link" to="/">Contact</Link>
-                            <Link className="landing-page__header__navbar__nav-link" to="/">Feedback</Link>
+                            <HashLink className="landing-page__header__navbar__nav-link" to="/">Home</HashLink>
+                            <HashLink className="landing-page__header__navbar__nav-link" to="/#product">Product</HashLink>
+                            <HashLink className="landing-page__header__navbar__nav-link" to="/#about">About</HashLink>
+                            <HashLink className="landing-page__header__navbar__nav-link" to="/#contact">Contact</HashLink>
+                            <HashLink className="landing-page__header__navbar__nav-link" to="/#feedback">Feedback</HashLink>
                         </Nav>
                         <Nav className="mr-right">
                             <Link className="landing-page__header__navbar__nav-link" to="/login">Login</Link>

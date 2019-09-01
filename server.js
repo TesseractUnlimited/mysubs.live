@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve the static files from the React app
-app.use(express.static(path.join(__dirname, 'client/dist')));
+app.use(express.static(path.join(__dirname, 'client', 'dist')));
 
 // Database Connection
 const uri = 'mongodb+srv://ssalcedo00:nalgonio1@cluster0-vtosk.mongodb.net/test?retryWrites=true&w=majority';
@@ -37,11 +37,9 @@ app.use('/sub', subRoutes);
 app.use('/subs', subsRoutes);
 app.use('/user', userRoutes);
 
-app.use((error, req, res, next) => {
-    //console.log(error);
-    const status = error.statusCode || 500;
-    const message = error.message;
-    res.status(status).json({ error: error, message: message});
+// Send index.html when new route appears
+app.get('/*', (req, res, next) => {
+    res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
 });
 
 // console.log that your server is up and running

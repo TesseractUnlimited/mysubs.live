@@ -252,28 +252,32 @@ class App extends Component {
         if (this.state.isAuth) {
             routes = (
                 <Switch>
-                    <Route path="/dashboard/sub-detail/:subId"
+                    <Route
+                        path="/dashboard/sub-detail/:subId"
                         render={props => (
                             <SubDetail {...props}
                                 username={this.state.username}
                                 token={this.state.token}
                                 />
                         )} />
-                    <Route path="/dashboard/add-sub"
+                    <Route
+                        path="/dashboard/add-sub"
                         render={props => (
                             <AddSub {...props}
                                 username={this.state.username}
                                 token={this.state.token}
                                 addSubHandler={this.addSubHandler} / >
                         )} />
-                    <Route exact path="/dashboard"
+                    <Route
+                        exact path="/dashboard"
                         render={props => (
                             <Dashboard {...props}
                                 username={this.state.username}
                                 userId={this.state.userId}
                                 token={this.state.token} />
                         )} />
-                    <Route path="/marketplace"
+                    <Route
+                        path="/marketplace"
                         render={props => (
                             <Marketplace {...props}
                                 username={this.state.username}
@@ -296,6 +300,7 @@ class App extends Component {
                 </Switch>
             );
         }
+        
         let header = (
             <LandingHeader />
         );
