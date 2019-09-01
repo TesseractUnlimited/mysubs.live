@@ -3,22 +3,37 @@
     flex-direction: column;
     height: 40rem;
     padding: 1rem 0.5rem;
-    text-align: center;
+    justify-content: center;
+    align-items: center;
     background-image: linear-gradient(#3854F2, #3243A6);
-    
+    text-align: center;
 }
 
-.landing__home__col {
+.landing__home__row,
+.landing__product__row,
+.landing__contact__row,
+.landing__about__row,
+.landing__feedback__row {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     height: 100%;
+    width: 100%;
     align-items: center;
+}
+
+.landing__home__row__col {
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .landing__home__title {
     font-size: 3.5rem;
     color: #fff;
+    margin: 0%;
 }
 
 .landing__home__try-now-btn {
@@ -52,7 +67,8 @@
 .landing__contact {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     height: 44rem;
     padding: 1rem 10rem;
     text-align: center;
@@ -68,8 +84,7 @@
 }
 
 .landing__product__image {
-    width: inherit;
-    height: inherit;
+    width: 50%;
 }
 
 .landing__product__left-col,
@@ -78,6 +93,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.landing__product__right-col {
+    align-content: center;
 }
 
 .landing__about__left-col,
@@ -132,5 +151,9 @@
 }
 
 .feedback__form-group {
+    width: 50%;
+}
+
+.landing__feedback__row__col {
     width: 50%;
 }
